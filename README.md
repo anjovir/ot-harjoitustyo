@@ -1,2 +1,3 @@
-Ohjelmistotekniikka harjoitustyö
--- Teen kuntoilusovelluksen, johon voi suunnitella kuntosaliohjelman ja seurata kehittymistä
+# Ohjelmistotekniikka harjoitustyö
+- Teen kuntoilusovelluksen, johon voi suunnitella kuntosaliohjelman ja seurata kehittymistä
+- linkki laskareihin: [laskarit](https://github.com/anjovir/ot-harjoitustyo/tree/main/laskarit)
