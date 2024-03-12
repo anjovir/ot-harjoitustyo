@@ -14,7 +14,6 @@ class TestMaksukortti(unittest.TestCase):
     
     def test_kortin_lataaminen_toimii(self):
         self.maksukortti.lataa_rahaa(100)
-
         self.assertEqual(self.maksukortti.saldo_euroina(), 11.0)
 
     def test_saldon_vahentaminen_toimii(self):
