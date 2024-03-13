@@ -6,7 +6,7 @@ Sovellus mahdollistaa oman kuntosalitreeniohjelman suunnittelun ja kirjanpidon t
 ## Käyttäjät
 Aluksi sovellukseen toteutetaan vain peruskäyttäjän rooli. Myöhemmin voidaan lisätä pääkäyttäjän rooli vahvemmilla oikeuksilla.
 
-## Perusversion tarjoama toiminnallisuus
+## Perusversion tarjoamat toiminnallisuudet
 ### Ennen kirjautumista
 - Käyttäjä voi luoda käyttäjätunnuksen järjestelmään
 - Käyttäjä voi kirjautua ohjelmaan
