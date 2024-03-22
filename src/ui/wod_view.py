@@ -1,5 +1,4 @@
 from tkinter import ttk, constants
-import tkinter as tk
 
 class WodView:
 
@@ -9,7 +8,7 @@ class WodView:
         self._frame = None
         self._frame2 = None
         
-        self.rows = [0,1,2,3,4]
+        self.rows = [0,1,2,3]
 
         self._initialize()
     
@@ -26,7 +25,7 @@ class WodView:
         current_row = len(self.rows)
         
         for i in range(4):
-            entry = tk.Entry(self._frame)
+            entry = ttk.Entry(self._frame)
             entry.grid(row=current_row, column=i)
         
         self.rows.append(len(self.rows))
@@ -74,7 +73,7 @@ class WodView:
         sets_entry.grid(row=3, column=1)
         reps_entry.grid(row=3, column=2)
         weights_entry.grid(row=3, column=3)
-        add_new_row_button.grid(row=self.rows[-1], column=0)
+        add_new_row_button.grid(row=len(self.rows), column=0)
         
         
         
