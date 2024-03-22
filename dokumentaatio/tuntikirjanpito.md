@@ -8,4 +8,5 @@
 | 19.3. | 1  | Viikko3, h2, UI + perusta |
 | 20.3. | 1  | Viikko3, h2, UI + perusta |
 | 21.3. | 1,5  | Viikko3, h2, UI + perusta |
+| 22.3. | 1  | Viikko3, h2, päivitetty UI:n perusnäkymiä |
 
