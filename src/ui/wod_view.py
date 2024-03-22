@@ -3,9 +3,9 @@ import tkinter as tk
 
 class WodView:
 
-    def __init__(self, root, handle_check_workout):
+    def __init__(self, root, handle__workout_view):
         self._root = root
-        self._handle_check_workout = handle_check_workout
+        self._handle_check_workout = handle__workout_view
         self._frame = None
         self._frame2 = None
         
@@ -20,6 +20,7 @@ class WodView:
 
     def destroy(self):
         self._frame.destroy()
+        self._frame2.destroy()
     
     def create_new_row(self):
         current_row = len(self.rows)
@@ -49,9 +50,9 @@ class WodView:
         weights_entry = ttk.Entry(master=self._frame)
 
 
-        button = ttk.Button(
-            master=self._frame2,
-            text="Check the full workout program",
+        workout_program_button = ttk.Button(
+            master=self._frame,
+            text="Back to workout program",
             command=self._handle_check_workout
         )
 
@@ -61,7 +62,9 @@ class WodView:
             command=self.create_new_row
             )
             
-        label.grid(row=0, column=0)
+        
+        label.grid(row=0, column=0, pady=5)
+        workout_program_button.grid(row=0, column=1, pady=5)
         exercise_name_label.grid(row=2, column=0)
         sets_label.grid(row=2, column=1)
         reps_label.grid(row=2, column=2)
