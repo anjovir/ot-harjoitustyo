@@ -13,6 +13,7 @@ CREATE TABLE workout_program (
 CREATE TABLE wod (
             id INTEGER PRIMARY KEY,
             wprogram_id INTEGER,
+            wod_name TEXT,
             exercise TEXT,
             sets TEXT,
             reps TEXT,

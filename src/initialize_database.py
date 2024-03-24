@@ -39,6 +39,7 @@ def create_tables(connection):
         create table wod (
             id INTEGER PRIMARY KEY,
             wprogram_id INTEGER,
+            wod_name TEXT,
             exercise TEXT,
             sets TEXT,
             reps TEXT,

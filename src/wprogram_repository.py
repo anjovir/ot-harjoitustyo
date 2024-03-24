@@ -40,6 +40,15 @@ class WorkoutProgramRepository:
 
         self._connection.commit()
     
+    def write(self, wprogram_name, wod_name, weekday):
+        cursor = self._connection.cursor()
+
+        cursor.execute("""
+            INSERT INTO workout_program (wprogram_name, wod_name, weekday)
+            VALUES (?, ?, ?)""", 
+            (wprogram_name, wod_name, weekday))
+
+        self._connection.commit()
     
 #workout_program_repository = WorkoutProgramRepository()
 #workout_programs =workout_program_repository.find_all()

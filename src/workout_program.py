@@ -13,7 +13,6 @@ class WorkoutProgram:
             wprogram_name: string, which describes workout programs name
             wod_name: string for the label of workout of the day
             weekday: string for the weekday of the wod
-
         '''
         self._wprogram_name = wprogram_name
         self._wod_name = wod_name

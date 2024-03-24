@@ -43,14 +43,12 @@ class WorkoutView:
         wod_button.grid(row=current_row,column=2)
         
         self.rows.append(len(self.rows))
-        print(self.entries)
     
     def save(self):
         rep = WorkoutProgramRepository()
         for entry in self.entries:
             wlabel = entry[0].get()
             weekday = entry[1].get()
-            print("Tulostus:", wlabel, weekday)
             rep.write("Workout program",wlabel, weekday)
 
     def _initialize(self):
