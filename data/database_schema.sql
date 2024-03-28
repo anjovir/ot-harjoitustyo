@@ -6,8 +6,6 @@ CREATE TABLE users (
 CREATE TABLE workout_program (
             id INTEGER PRIMARY KEY,
             wprogram_name TEXT,
-            wod_name TEXT,
-            weekday TEXT
         );
         
 CREATE TABLE wod (

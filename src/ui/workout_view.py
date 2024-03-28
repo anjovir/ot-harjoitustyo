@@ -1,48 +1,34 @@
 from tkinter import ttk, constants
+import tkinter as tk
+from tkinter import font as tkfont
 from wprogram_repository import WorkoutProgramRepository
+from workout_program import WorkoutProgram
 
 class WorkoutView:
 
     def __init__(self, root, handle_check_wod):
         self._root = root
         self._handle_check_wod = handle_check_wod
-        self._frame = None
+        self._frame1 = None
         self._frame2 = None
         self._frame3 = None
         
         self.rows = [0,1,2,3]
         self.entries = []
 
+        self.title = tkfont.Font(family='Helvetica', size=18, weight="bold")
+
         self._initialize()
     
     def pack(self):
-        self._frame.pack(fill=constants.X)
+        self._frame1.pack(fill=constants.X)
         self._frame2.pack(fill=constants.X)
         self._frame3.pack(fill=constants.X)
     
     def destroy(self):
-        self._frame.destroy()
+        self._frame1.destroy()
         self._frame2.destroy()
         self._frame3.destroy()
-    
-    def create_new_row(self):
-        current_row = len(self.rows)
-        
-        self.entry1 = ttk.Entry(self._frame)
-        self.entry1.grid(row=current_row, column=0)
-        self.entry2 = ttk.Entry(self._frame)
-        self.entry2.grid(row=current_row, column=1)
-        self.entries.append([self.entry1, self.entry2])
-        
-        wod_button = ttk.Button(
-            master=self._frame,
-            text="Check the workout",
-            command=self._handle_check_wod
-        )
-
-        wod_button.grid(row=current_row,column=2)
-        
-        self.rows.append(len(self.rows))
     
     def save(self):
         rep = WorkoutProgramRepository()
@@ -52,45 +38,36 @@ class WorkoutView:
             rep.write("Workout program",wlabel, weekday)
 
     def _initialize(self):
-        self._frame = ttk.Frame(master=self._root)
+        self._frame1 = ttk.Frame(master=self._root)
         self._frame2 = ttk.Frame(master=self._root)
         self._frame3 = ttk.Frame(master=self._root)
-        label = ttk.Label(master=self._frame, text="Workout program")
-
-        self.workout_label = ttk.Label(master=self._frame, text="Workout label")
-        weekday_label = ttk.Label(master=self._frame, text="Weekday")
-
-        self.workout_label_entry = ttk.Entry(master=self._frame)
-        self.weekday_label_entry = ttk.Entry(master=self._frame)
-
-        self.entries.append([self.workout_label_entry, self.weekday_label_entry])
+        wpr = WorkoutProgramRepository()
+        workouts = wpr.find_all()
+        
+        workout_name = ttk.Label(master=self._frame1, text= workouts[0].program_name(),
+                                 font=self.title, padding=5)
+        workout_name.grid(row=0, column=0, columnspan=2)
 
         wod_button = ttk.Button(
-            master=self._frame,
+            master=self._frame2,
             text="Check the workout",
             command=self._handle_check_wod
         )
 
-        add_new_wod_button = ttk.Button(
+        counter = 1
+        for workout in workouts:   
+            wod = ttk.Label(master=self._frame2, text= workout.wod_name())    
+            wod.grid(row=counter, column=0)
+
+            wod_button = ttk.Button(
             master=self._frame2,
-            text="Add new workout of the day",
-            command=self.create_new_row
+            text="Check the workout",
+            command=self._handle_check_wod
         )
-
-        save_button = ttk.Button(
-            master=self._frame3,
-            text="Save",
-            command=self.save
-        )
-
-        label.grid(row=0, column=0)
-        self.workout_label.grid(row=2, column=0)
-        weekday_label.grid(row=2, column=1)
-        self.workout_label_entry.grid(row=3, column=0)
-        self.weekday_label_entry.grid(row=3, column=1)
-        wod_button.grid(row=3, column=2)
+            wod_button.grid(row=counter, column=1)
+            counter += 1
         
-        add_new_wod_button.grid(row=4, column=0)
 
-        save_button.grid(row=5, column=0)
+        
+        
         

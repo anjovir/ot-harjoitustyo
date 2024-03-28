@@ -29,7 +29,6 @@ class WodView:
     def create_new_row(self):
         current_row = len(self.rows)
         
-        
         entry1 = ttk.Entry(self._frame)
         entry2 = ttk.Entry(self._frame)
         entry3 = ttk.Entry(self._frame)
@@ -45,12 +44,14 @@ class WodView:
         
     def save(self):
         rep = WodRepository()
+        wprogram_id = 1
         for entry in self.entries:
             exercise = entry[0].get()
             sets = entry[1].get()
             reps = entry[2].get()
             weights = entry[3].get()
             rep.write(self.wod_name_entry.get(),
+                      wprogram_id,
                       exercise,
                       sets,
                       reps,
@@ -83,12 +84,11 @@ class WodView:
                              reps_entry,
                              weights_entry])
 
-        #Not in use until proper adjustments mady to db, workout_view
-        #workout_program_button = ttk.Button(
-        #    master=self._frame,
-        #    text="Back to workout program",
-        #    command=self._handle_check_workout
-        #)
+        workout_program_button = ttk.Button(
+            master=self._frame3,
+            text="Back to workout program",
+            command=self._handle_check_workout
+        )
 
         add_new_row_button = ttk.Button(
             master=self._frame2,
@@ -120,6 +120,7 @@ class WodView:
         add_new_row_button.grid(row=len(self.rows), column=0)
 
         save_button.grid(row=0, column=0)
+        workout_program_button.grid(row=0,column=1)
         
         
         

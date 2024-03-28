@@ -9,11 +9,17 @@ class WorkoutProgramRepository:
     def find_all(self):
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT * FROM workout_program")
+        cursor.execute("""SELECT workout_program.id, 
+                       workout_program.wprogram_name, 
+                       wod.wod_name 
+                       FROM wod 
+                       INNER JOIN workout_program 
+                       ON wod.wprogram_id = workout_program.id;
+                       """)
 
         rows = cursor.fetchall()
 
-        return [WorkoutProgram(row["wprogram_name"], row["wod_name"], row["weekday"]) for row in rows]
+        return [WorkoutProgram(row["id"],row["wprogram_name"], row["wod_name"]) for row in rows]
 
 
     def save_workout_program(self, workout_program):
@@ -40,15 +46,9 @@ class WorkoutProgramRepository:
 
         self._connection.commit()
     
-    def write(self, wprogram_name, wod_name, weekday):
-        cursor = self._connection.cursor()
-
-        cursor.execute("""
-            INSERT INTO workout_program (wprogram_name, wod_name, weekday)
-            VALUES (?, ?, ?)""", 
-            (wprogram_name, wod_name, weekday))
-
-        self._connection.commit()
+    
+    
+    
     
 #workout_program_repository = WorkoutProgramRepository()
 #workout_programs =workout_program_repository.find_all()

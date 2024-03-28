@@ -15,13 +15,13 @@ class WodRepository:
 
         return [Wod(row["wod_name"], row["exercise"], row["sets"], row["reps"], row["weights"]) for row in rows]
     
-    def write(self, wod_name, exercise, sets, reps, weights):
+    def write(self, wod_name, wprogram_id, exercise, sets, reps, weights):
         cursor = self._connection.cursor()
 
         cursor.execute("""
-            INSERT INTO wod (wod_name, exercise, sets, reps, weights)
-            VALUES (?, ?, ?, ?, ?)""", 
-            (wod_name, exercise, sets, reps, weights))
+            INSERT INTO wod (wod_name, wprogram_id, exercise, sets, reps, weights)
+            VALUES (?, ?, ?, ?, ?, ?)""", 
+            (wod_name, wprogram_id, exercise, sets, reps, weights))
 
         self._connection.commit()
     

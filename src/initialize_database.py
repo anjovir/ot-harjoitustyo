@@ -29,9 +29,7 @@ def create_tables(connection):
     cursor.execute('''
         create table workout_program (
             id INTEGER PRIMARY KEY,
-            wprogram_name TEXT,
-            wod_name TEXT,
-            weekday TEXT
+            wprogram_name TEXT
         );
     ''')
 
