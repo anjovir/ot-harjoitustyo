@@ -4,11 +4,11 @@ from wod import Wod
 
 class WodView:
 
-    def __init__(self, root, handle__workout_view, wod_name, handle_wod_edit):
+    def __init__(self, root, handle__workout_view, wod_name, handle_edit_wod):
         self._root = root
         self._handle_check_workout = handle__workout_view
         self.wod_name = wod_name
-        self.hande_wod_edit = handle_wod_edit
+        self.hande_edit_wod = handle_edit_wod
         
         self._frame = None
         self._frame2 = None
@@ -72,7 +72,7 @@ class WodView:
         wod_edit_button = ttk.Button(
             master=self._frame3,
             text="Edit WOD",
-            command=self.hande_wod_edit
+            command=lambda wname=self.wod_name: self.hande_edit_wod(wname)
         )
 
         wod_edit_button.grid(row=1, column=0)

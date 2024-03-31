@@ -2,6 +2,7 @@
 from ui.workout_view import WorkoutView
 from ui.wod_view import WodView
 from ui.new_wod_view import NewWodView
+from ui.edit_wod_view import EditWodView
 
 class UI:
     def __init__(self, root):
@@ -25,6 +26,9 @@ class UI:
     
     def _handle_new_wod_view(self):
         self._show_new_wod_view()
+    
+    def _handle_edit_wod_view(self, wod_name):
+        self._show_edit_wod_view(wod_name)
 
     def _show_wod_view(self, wod_name):
         self._hide_current_view()
@@ -33,7 +37,7 @@ class UI:
             self._root,
             self._handle_workout,
             wod_name,
-            self._handle_new_wod_view
+            self._handle_edit_wod_view
         )
 
         self._current_view.pack()
@@ -59,3 +63,14 @@ class UI:
 
         self._current_view.pack()
 
+    def _show_edit_wod_view(self, wod_name):
+        self._hide_current_view()
+        
+        self._current_view = EditWodView(
+            self._root,
+            self._handle_workout,
+            self._handle_wod,
+            wod_name
+        )
+
+        self._current_view.pack()
