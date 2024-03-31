@@ -11,6 +11,9 @@
 | 22.3. | 1  | Viikko3, h2, päivitetty UI:n perusnäkymiä |
 | 23.3. | 1,5  | Viikko3, h2, luotu tietokanta ja tehty tähän liittyviä luokkia |
 |24.3.| 1,5 | Viikko3, h2, tietokantaan tallentaminen |
-|27.3.| 1 | Viikko3, h2,  |
+|27.3.| 1 | Viikko3, h2, tietokanta |
+|28.3.| 1 | Viikko3, h2, wod_näkymä |
+|29.3.| 1 | Viikko3, h2, treenin tallentaminen |
+|30.3.| 2,5 | Viikko3, h2,  |
 |Summa|8||
 
