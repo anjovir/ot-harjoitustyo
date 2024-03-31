@@ -6,9 +6,10 @@ from workout_program import WorkoutProgram
 
 class WorkoutView:
 
-    def __init__(self, root, handle_check_wod):
+    def __init__(self, root, handle_wod, handle_new_wod):
         self._root = root
-        self._handle_check_wod = handle_check_wod
+        self._handle_check_wod = handle_wod
+        self.handle_new_wod = handle_new_wod
         self._frame1 = None
         self._frame2 = None
         self._frame3 = None
@@ -42,32 +43,30 @@ class WorkoutView:
         self._frame2 = ttk.Frame(master=self._root)
         self._frame3 = ttk.Frame(master=self._root)
         wpr = WorkoutProgramRepository()
-        workouts = wpr.find_all()
+        workouts = wpr.find_all_distinct_wods()
         
         workout_name = ttk.Label(master=self._frame1, text= workouts[0].program_name(),
                                  font=self.title, padding=5)
         workout_name.grid(row=0, column=0, columnspan=2)
 
-        wod_button = ttk.Button(
-            master=self._frame2,
-            text="Check the workout",
-            command=self._handle_check_wod
-        )
-
         counter = 1
-        for workout in workouts:   
-            wod = ttk.Label(master=self._frame2, text= workout.wod_name())    
-            wod.grid(row=counter, column=0)
 
+        for workout in workouts: 
+            wod = ttk.Label(master=self._frame2, text= workout.wod_name())
+             
+            wod.grid(row=counter, column=0)
+            
             wod_button = ttk.Button(
             master=self._frame2,
             text="Check the workout",
-            command=self._handle_check_wod
-        )
-            wod_button.grid(row=counter, column=1)
+            command=lambda wod_name=workout.wod_name(): self._handle_check_wod(wod_name))
+            
+            wod_button.grid(row=counter, column=1)            
             counter += 1
-        
-
-        
-        
-        
+    
+        new_wod_button = ttk.Button(
+            master=self._frame3,
+            text="New WOD",
+            command=self.handle_new_wod
+        )
+        new_wod_button.grid(row=0, column=0)

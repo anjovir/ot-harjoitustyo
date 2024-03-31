@@ -24,3 +24,6 @@ class Wod:
         self.sets = sets
         self.reps = reps
         self.weights = weights
+    
+    def return_args(self):
+        return [self.wod_name, self.exercise, self.sets, self.reps, self.weights]

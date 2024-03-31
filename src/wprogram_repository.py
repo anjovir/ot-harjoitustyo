@@ -20,7 +20,36 @@ class WorkoutProgramRepository:
         rows = cursor.fetchall()
 
         return [WorkoutProgram(row["id"],row["wprogram_name"], row["wod_name"]) for row in rows]
+    
+    def find_all_distinct_wods(self):
+        cursor = self._connection.cursor()
 
+        cursor.execute("""SELECT DISTINCT workout_program.id, 
+                       workout_program.wprogram_name, 
+                       wod.wod_name 
+                       FROM wod 
+                       INNER JOIN workout_program 
+                       ON wod.wprogram_id = workout_program.id;
+                       """)
+
+        rows = cursor.fetchall()
+
+        return [WorkoutProgram(row["id"],row["wprogram_name"], row["wod_name"]) for row in rows]
+    
+    def find_the_wod(self, wod_name):
+        cursor = self._connection.cursor()
+
+        cursor.execute("""SELECT workout_program.id,  
+                       wod.wod_name 
+                       FROM wod 
+                       INNER JOIN workout_program 
+                       ON wod.wprogram_id = workout_program.id
+                       WHERE wod.wod_name=(?);
+                       """,(wod_name))
+
+        wod = cursor.fetchone()
+
+        return wod
 
     def save_workout_program(self, workout_program):
         """Saves the workout program to the db

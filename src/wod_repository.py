@@ -6,10 +6,11 @@ class WodRepository:
     def __init__(self):
         self._connection = get_database_connection()
     
-    def find_all(self):
+    def find_current_wod(self, wod_name):
+        
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT * FROM wod")
+        cursor.execute("SELECT * FROM wod WHERE wod_name=?", (wod_name,))
 
         rows = cursor.fetchall()
 

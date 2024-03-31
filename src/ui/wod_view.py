@@ -1,11 +1,15 @@
 from tkinter import ttk, constants
 from wod_repository import WodRepository
+from wod import Wod
 
 class WodView:
 
-    def __init__(self, root, handle__workout_view):
+    def __init__(self, root, handle__workout_view, wod_name, handle_wod_edit):
         self._root = root
         self._handle_check_workout = handle__workout_view
+        self.wod_name = wod_name
+        self.hande_wod_edit = handle_wod_edit
+        
         self._frame = None
         self._frame2 = None
         self._frame3 = None
@@ -20,107 +24,58 @@ class WodView:
         self._frame2.pack(fill=constants.X)
         self._frame3.pack(fill=constants.X)
 
-
     def destroy(self):
         self._frame.destroy()
         self._frame2.destroy()
         self._frame3.destroy()
-    
-    def create_new_row(self):
-        current_row = len(self.rows)
-        
-        entry1 = ttk.Entry(self._frame)
-        entry2 = ttk.Entry(self._frame)
-        entry3 = ttk.Entry(self._frame)
-        entry4 = ttk.Entry(self._frame)
-        
-        entry1.grid(row=current_row, column=0)
-        entry2.grid(row=current_row, column=1)
-        entry3.grid(row=current_row, column=2)
-        entry4.grid(row=current_row, column=3)
-        
-        self.rows.append(len(self.rows))
-        self.entries.append([entry1, entry2, entry3, entry4])
-        
-    def save(self):
-        rep = WodRepository()
-        wprogram_id = 1
-        for entry in self.entries:
-            exercise = entry[0].get()
-            sets = entry[1].get()
-            reps = entry[2].get()
-            weights = entry[3].get()
-            rep.write(self.wod_name_entry.get(),
-                      wprogram_id,
-                      exercise,
-                      sets,
-                      reps,
-                      weights)
-
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         self._frame2 = ttk.Frame(master=self._root)
         self._frame3 = ttk.Frame(master=self._root)
+
+        wr = WodRepository()
+        current_wod = wr.find_current_wod(self.wod_name)
         
-        wod_name = ttk.Label(master=self._frame, text="Workout name")
-        self.wod_name_entry = ttk.Entry(master=self._frame)
-        
+        wod_name = ttk.Label(master=self._frame, text=(f"Wod name: {current_wod[0].return_args()[0]}"))
         exercise_name_label = ttk.Label(master=self._frame, text="Exercise")
-        exercise_name_entry = ttk.Entry(master=self._frame)
-
         sets_label = ttk.Label(master=self._frame, text="Number of sets")
-        sets_entry = ttk.Entry(master=self._frame)
-
         reps_label = ttk.Label(master=self._frame, text="Number of reps")
-        reps_entry = ttk.Entry(master=self._frame)
-
         weights_label = ttk.Label(master=self._frame, text="Weights")
-        weights_entry = ttk.Entry(master=self._frame)
-
-        self.entries.append([self.wod_name_entry,
-                             exercise_name_entry,
-                             sets_entry,
-                             reps_entry,
-                             weights_entry])
 
         workout_program_button = ttk.Button(
             master=self._frame3,
             text="Back to workout program",
             command=self._handle_check_workout
         )
-
-        add_new_row_button = ttk.Button(
-            master=self._frame2,
-            text="Add new exercise",
-            command=self.create_new_row
-            )
-        
-        save_button = ttk.Button(
-            master=self._frame3,
-            text="Save",
-            command=self.save
-        )
             
-        wod_name.grid(row=0, column=0)
-        self.wod_name_entry.grid(row=0, column=1)
-        
+        wod_name.grid(row=0, column=0)        
         exercise_name_label.grid(row=2, column=0)
-        exercise_name_entry.grid(row=3, column=0)
-
         sets_label.grid(row=2, column=1)
-        sets_entry.grid(row=3, column=1)
-        
         reps_label.grid(row=2, column=2)
-        reps_entry.grid(row=3, column=2)
-        
         weights_label.grid(row=2, column=3)
-        weights_entry.grid(row=3, column=3)
 
-        add_new_row_button.grid(row=len(self.rows), column=0)
+        workout_program_button.grid(row=0,column=1)       
+        
+        i = 3
+        for wod in current_wod:
+            exercise = ttk.Label(master=self._frame, text= wod.return_args()[1])
+            exercise.grid(row=i, column=0)
+            sets = ttk.Label(master=self._frame, text= wod.return_args()[2])
+            sets.grid(row=i, column=1)
+            reps = ttk.Label(master=self._frame, text= wod.return_args()[3])
+            reps.grid(row=i, column=2)
+            weights = ttk.Label(master=self._frame, text= wod.return_args()[4])
+            weights.grid(row=i, column=3)
+            i += 1
+            
+        wod_edit_button = ttk.Button(
+            master=self._frame3,
+            text="Edit WOD",
+            command=self.hande_wod_edit
+        )
 
-        save_button.grid(row=0, column=0)
-        workout_program_button.grid(row=0,column=1)
+        wod_edit_button.grid(row=1, column=0)
         
         
         
