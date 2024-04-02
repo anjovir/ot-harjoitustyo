@@ -34,14 +34,25 @@ def create_tables(connection):
     ''')
 
     cursor.execute('''
-        create table wod (
+        create table wod_exercises (
             id INTEGER PRIMARY KEY,
-            wprogram_id INTEGER,
-            wod_name TEXT,
+            wod_id INTEGER,
             exercise TEXT,
             sets TEXT,
             reps TEXT,
             weights TEXT,
+                   
+            FOREIGN KEY (wod_id)
+            REFERENCES wod_id_table (id)
+                
+        );
+    ''')
+
+    cursor.execute('''
+        create table wod_id_table (
+            id INTEGER PRIMARY KEY,
+            wprogram_id INTEGER,
+            wod_name TEXT,
                    
             FOREIGN KEY (wprogram_id)
             REFERENCES workout_program (id)

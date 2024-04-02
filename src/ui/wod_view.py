@@ -4,11 +4,11 @@ from wod import Wod
 
 class WodView:
 
-    def __init__(self, root, handle__workout_view, wod_name, handle_edit_wod):
+    def __init__(self, root, handle__workout_view, handle_edit_wod, wod_id):
         self._root = root
         self._handle_check_workout = handle__workout_view
-        self.wod_name = wod_name
         self.hande_edit_wod = handle_edit_wod
+        self.wod_id = wod_id
         
         self._frame = None
         self._frame2 = None
@@ -35,8 +35,9 @@ class WodView:
         self._frame3 = ttk.Frame(master=self._root)
 
         wr = WodRepository()
-        current_wod = wr.find_current_wod(self.wod_name)
-        
+        current_wod = wr.find_current_wod_by_id(self.wod_id)
+        print(current_wod)
+               
         wod_name = ttk.Label(master=self._frame, text=(f"Wod name: {current_wod[0].return_args()[0]}"))
         exercise_name_label = ttk.Label(master=self._frame, text="Exercise")
         sets_label = ttk.Label(master=self._frame, text="Number of sets")
@@ -72,7 +73,7 @@ class WodView:
         wod_edit_button = ttk.Button(
             master=self._frame3,
             text="Edit WOD",
-            command=lambda wname=self.wod_name: self.hande_edit_wod(wname)
+            command=lambda w_id=self.wod_id: self.hande_edit_wod(w_id)
         )
 
         wod_edit_button.grid(row=1, column=0)

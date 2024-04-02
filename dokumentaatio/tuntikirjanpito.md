@@ -14,6 +14,6 @@
 |27.3.| 1 | Viikko3, h2, tietokanta |
 |28.3.| 1 | Viikko3, h2, wod_näkymä |
 |29.3.| 1 | Viikko3, h2, treenin tallentaminen |
-|30.3.| 3 | Viikko3, h2, siirtyminen treeninäkymien välillä |
+|30.3.| 3,5 | Viikko3, h2, siirtyminen treeninäkymien välillä |
 |Summa|8||
 

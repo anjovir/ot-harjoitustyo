@@ -59,7 +59,7 @@ class WorkoutView:
             wod_button = ttk.Button(
             master=self._frame2,
             text="Check the workout",
-            command=lambda wod_name=workout.wod_name(): self._handle_check_wod(wod_name))
+            command=lambda wod_id=workout.wod_id(): self._handle_check_wod(wod_id))
             
             wod_button.grid(row=counter, column=1)            
             counter += 1

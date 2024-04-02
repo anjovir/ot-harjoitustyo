@@ -26,25 +26,26 @@ class WorkoutProgramRepository:
 
         cursor.execute("""SELECT DISTINCT workout_program.id, 
                        workout_program.wprogram_name, 
-                       wod.wod_name 
-                       FROM wod 
+                       wod_id_table.wod_name,
+                       wod_id_table.id
+                       FROM wod_id_table
                        INNER JOIN workout_program 
-                       ON wod.wprogram_id = workout_program.id;
+                       ON wod_id_table.wprogram_id = workout_program.id;
                        """)
 
         rows = cursor.fetchall()
 
-        return [WorkoutProgram(row["id"],row["wprogram_name"], row["wod_name"]) for row in rows]
+        return [WorkoutProgram(row["id"],row["wprogram_name"], row["wod_name"], row[3]) for row in rows]
     
     def find_the_wod(self, wod_name):
         cursor = self._connection.cursor()
 
         cursor.execute("""SELECT workout_program.id,  
-                       wod.wod_name 
-                       FROM wod 
+                       wod_id_table.wod_name, 
+                       FROM wod_id_table
                        INNER JOIN workout_program 
-                       ON wod.wprogram_id = workout_program.id
-                       WHERE wod.wod_name=(?);
+                       ON wod_id_table.wprogram_id = workout_program.id
+                       WHERE wod_id_table.wod_name=(?);
                        """,(wod_name))
 
         wod = cursor.fetchone()
