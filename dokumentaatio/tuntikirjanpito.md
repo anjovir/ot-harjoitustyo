@@ -15,5 +15,8 @@
 |28.3.| 1 | Viikko3, h2, wod_näkymä |
 |29.3.| 1 | Viikko3, h2, treenin tallentaminen |
 |30.3.| 3,5 | Viikko3, h2, siirtyminen treeninäkymien välillä |
-|Summa|8||
+|31.3.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen |
+|1.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen|
+|2.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen|
+|Summa|18,5||
 
