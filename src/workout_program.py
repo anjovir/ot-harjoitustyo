@@ -14,6 +14,7 @@ class WorkoutProgram:
             id: unique indentifier for the workout program
             wprogram_name: string, which describes workout programs name
             wod_name: string for the label of workout of the day
+            self.w_id: id of the wod
             
         '''
         self._id = id
@@ -34,4 +35,4 @@ class WorkoutProgram:
         return self.w_id
 
     def __str__(self):
-        return f"WorkoutProgram(id={self._id}, wprogram_name={self._wprogram_name}, wod_name={self._wod_name})"
+        return f"WorkoutProgram: (id={self._id}, wprogram_name={self._wprogram_name}, wod_name={self._wod_name}, wod_id={self.w_id})"
