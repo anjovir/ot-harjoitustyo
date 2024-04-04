@@ -7,5 +7,4 @@ htmlcov
 poetry.lock
 pyproject.toml
 /src/tests
-.coverage
 .coveragerc
