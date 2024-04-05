@@ -17,7 +17,7 @@ sequenceDiagram
    main->>+R6: ostalippu(kallen_kortti, 0)
    R6->>+kallen_kortti: 1.5
    kallen_kortti->>+R6: vahenna_arvoa(1,5)
-   +R6 -->>main: True
+   R6 -->>main: True
    main->>B: ostalippu(kallen_kortti,2)
    B -->>+main: False
 
