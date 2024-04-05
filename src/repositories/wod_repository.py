@@ -6,26 +6,6 @@ class WodRepository:
     def __init__(self):
         self._connection = get_database_connection()
     
-    def find_current_wod(self, wod_name):
-        
-        cursor = self._connection.cursor()
-        cursor.execute("""SELECT wod_id_table.wod_name,
-                       wod_id_table.id,
-                       wod_exercises.id,
-                       wod_exercises.exercise,
-                       wod_exercises.sets,
-                       wod_exercises.reps,
-                       wod_exercises.weights
-                       FROM wod_id_table
-                       INNER JOIN wod_exercises 
-                       ON wod_id_table.id = wod_exercises.wod_id
-                       WHERE wod_id_table.wod_name = ?;""",
-                         (wod_name,))
-
-        rows = cursor.fetchall()
-
-        return [Wod(row["wod_name"], row["exercise"], row["sets"], row["reps"], row["weights"], row[1], row[2]) for row in rows]
-    
     def find_current_wod_by_id(self, wod_id):
         
         cursor = self._connection.cursor()
@@ -49,12 +29,16 @@ class WodRepository:
     def write(self, wod_name, wprogram_id, exercise, sets, reps, weights):
         cursor = self._connection.cursor()
 
+        cursor.execute("SELECT wod_name FROM wod_id_table WHERE wod_name=?", (wod_name,))
+        result = cursor.fetchone()
+        if result is not None:
+            return
+
         cursor.execute("""
             INSERT INTO wod_id_table (wprogram_id, wod_name)
             VALUES (?, ?)""", 
             (wprogram_id, wod_name))
         
-        self._connection.commit()
         
         cursor.execute("SELECT id FROM wod_id_table WHERE wod_name = ?", (wod_name,))
 
