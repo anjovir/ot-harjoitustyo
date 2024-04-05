@@ -1,4 +1,4 @@
-from workout_program import WorkoutProgram
+from entities.workout_program import WorkoutProgram
 from database_connection import get_database_connection
 import sqlite3
 

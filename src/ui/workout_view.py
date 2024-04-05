@@ -1,8 +1,8 @@
 from tkinter import ttk, constants
 import tkinter as tk
 from tkinter import font as tkfont
-from wprogram_repository import WorkoutProgramRepository
-from workout_program import WorkoutProgram
+from repositories.wprogram_repository import WorkoutProgramRepository
+from entities.workout_program import WorkoutProgram
 
 class WorkoutView:
 

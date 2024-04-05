@@ -1,4 +1,4 @@
-from wod import Wod
+from entities.wod import Wod
 from database_connection import get_database_connection
 import sqlite3
 
@@ -81,14 +81,13 @@ class WodRepository:
         self._connection.commit()
 
         cursor.execute("SELECT id FROM wod_exercises")
-        
+
         last_id = cursor.fetchall()[-1]
         return last_id["id"]
 
     
     def edit(self, row_id, wod_id, wod_name, wprogram_id,exercise, sets, reps, weights):
         cursor = self._connection.cursor()
-        print(row_id)
 
         cursor.execute("""UPDATE wod_id_table 
                        SET wod_name = ?,

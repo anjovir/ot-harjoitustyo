@@ -1,5 +1,5 @@
 from tkinter import ttk, constants
-from wod_repository import WodRepository
+from repositories.wod_repository import WodRepository
 
 class EditWodView:
     def __init__(self, root, handle_workout_view, handle_wod_view, wod_id):

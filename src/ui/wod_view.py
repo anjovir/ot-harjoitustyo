@@ -1,6 +1,6 @@
 from tkinter import ttk, constants
-from wod_repository import WodRepository
-from wod import Wod
+from repositories.wod_repository import WodRepository
+from entities.wod import Wod
 
 class WodView:
 
@@ -36,7 +36,6 @@ class WodView:
 
         wr = WodRepository()
         current_wod = wr.find_current_wod_by_id(self.wod_id)
-        print(current_wod)
                
         wod_name = ttk.Label(master=self._frame, text=(f"Wod name: {current_wod[0].return_args()[0]}"))
         exercise_name_label = ttk.Label(master=self._frame, text="Exercise")
