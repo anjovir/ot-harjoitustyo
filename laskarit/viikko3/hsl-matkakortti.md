@@ -12,6 +12,7 @@ sequenceDiagram
    participant Li as lippu_luukku
    main->>Li: osta_matkakortti("Kalle")
    Li->>+kallen_kortti: uusikortti
+   Li-->>main: kallen_kortti
    main->>+R: lataa_arvoa(kallen_kortti, 3)
    R-->>kallen_kortti: 3
    main->>+R6: ostalippu(kallen_kortti, 0)
