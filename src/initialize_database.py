@@ -11,7 +11,11 @@ def drop_tables(connection):
         ''')
 
     cursor.execute('''
-        drop table if exists wod;
+        drop table if exists wod_id_table;
+        ''')
+    
+    cursor.execute('''
+        drop table if exists wod_exercises;
         ''')
     
     connection.commit()
@@ -59,6 +63,12 @@ def create_tables(connection):
                 
         );
     ''')
+
+    cursor.execute('''
+        INSERT INTO workout_program (wprogram_name)
+        VALUES ("My Workout Program");
+    ''')
+
 
     connection.commit()
 
