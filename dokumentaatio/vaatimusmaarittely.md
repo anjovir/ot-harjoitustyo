@@ -14,17 +14,17 @@ Aluksi sovellukseen toteutetaan vain peruskäyttäjän rooli. Myöhemmin voidaan
   - Mikäli salasana tai käyttäjätunnus ei täsmää, tai näitä ei ole olemassa, tästä tulee ilmoitus
 
 ### Kirjautumisen jälkeen
-- Käyttäjä näkee oman kuntosaliohjelmansa ja näiden päiväkohtaiset treeniohjelmansa
+- Käyttäjä näkee oman kuntosaliohjelmansa ja näiden päiväkohtaiset treeniohjelmansa [tehty]
   - Näkyvyys ainoastaan kirjautuneelle käyttäjälle
-- Käyttäjä voi lisätä treeniohjelmaan treeniliikkeen, sarjojen ja toistojen määrän sekä käytettävät painot
-- Käyttäjä voi merkitä myös treeniohjelmaan päivän treenin toteutuneet sarjat, toistot ja painot
+- Käyttäjä voi lisätä treeniohjelmaan treeniliikkeen, sarjojen ja toistojen määrän sekä käytettävät painot [tehty]
   - Käyttäjä voi pitää näin kirjaa kehityksestä ja seurata kehittymistä
-- Käyttäjä voi muokata treeniohjelmaa
+- Käyttäjä voi muokata treeniohjelmaa [tehty]
 - Käyttäjä voi poistaa treeniohjelman
 - Käyttäjä voi kirjautua ulos järjestelmästä
 
 ## Jatkokehitysideoita
 - Käyttäjä voi merkitä tehdyt ohjelmat kalenteriin
+- [Siirretty jatkokehitykseen] Käyttäjä voi merkitä myös treeniohjelmaan päivän treenin toteutuneet sarjat, toistot ja painot
 - Käyttäjä voi tehdä tilastoja kehityksestä
 - Käyttäjä voi jakaa treeniohjelman muille käyttäjille
 - Käyttäjä voi tehdä useamman kuntosaliohjelman
