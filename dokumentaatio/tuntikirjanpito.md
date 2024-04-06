@@ -21,6 +21,6 @@
 |3.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen|
 |4.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen|
 |5.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen, bugien korjailu|
-|6.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen, koodin osittaminen|
-|Summa|22,5||
+|6.4.| 4 | Viikko3, h2, tallennetun treenin muokkaaminen, koodin osittaminen|
+|Summa|25,5||
 
