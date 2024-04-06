@@ -11,6 +11,7 @@ class NewWodView:
         self._frame3 = None
         
         self.entries = []
+        self._ws = WodService()
 
         self._initialize()
     
@@ -41,20 +42,20 @@ class NewWodView:
         self.entries.append([self.wod_name_entry,entry1, entry2, entry3, entry4])
         
     def save(self):
-        rep = WodRepository()
-        wprogram_id = 1
-
+        content = []
         for entry in self.entries:
             exercise = entry[1].get()
             sets = entry[2].get()
             reps = entry[3].get()
             weights = entry[4].get()
-            rep.write(self.wod_name_entry.get(),
-                      wprogram_id,
+            content.append([self.wod_name_entry.get(),
                       exercise,
                       sets,
                       reps,
-                      weights)
+                      weights])
+            
+        self._ws.save_new_wod(content)
+        
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

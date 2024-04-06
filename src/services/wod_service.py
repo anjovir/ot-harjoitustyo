@@ -17,18 +17,13 @@ class WodService:
 
         
     def save_new_wod(self, entries):
-
         wprogram_id = 1
         
         for entry in entries:
-            exercise = entry[1].get()
-            sets = entry[2].get()
-            reps = entry[3].get()
-            weights = entry[4].get()
-            self._wod_repo.write(self.wod_name_entry.get(),
+            self._wod_repo.write(entry[0],
                       wprogram_id,
-                      exercise,
-                      sets,
-                      reps,
-                      weights)
+                      entry[1],
+                      entry[2],
+                      entry[3],
+                      entry[4])
     
