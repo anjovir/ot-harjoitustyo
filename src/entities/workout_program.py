@@ -7,7 +7,10 @@ class WorkoutProgram:
         wod_name: string for the label of workout of the day
         
     '''
-    def __init__(self, id, wprogram_name, wod_name, wod_id):
+    def __init__(self, id=1,
+                 wprogram_name = "Default", 
+                 wod_name = "", 
+                 wod_id = ""):
         ''' Class constructor, which creates a new workout program
 
         Args:
