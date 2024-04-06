@@ -1,5 +1,6 @@
 from tkinter import ttk, constants
 from repositories.wod_repository import WodRepository
+from services.wod_service import WodService
 
 class NewWodView:
     def __init__(self, root, handle__workout_view):
@@ -9,7 +10,6 @@ class NewWodView:
         self._frame2 = None
         self._frame3 = None
         
-        self.rows = [0,1,2,3]
         self.entries = []
 
         self._initialize()
@@ -26,19 +26,18 @@ class NewWodView:
         self._frame3.destroy()
     
     def create_new_row(self):
-        current_row = len(self.rows)
+        current_row = len(self.entries)
         
-        entry1 = ttk.Entry(self._frame)
-        entry2 = ttk.Entry(self._frame)
-        entry3 = ttk.Entry(self._frame)
-        entry4 = ttk.Entry(self._frame)
+        entry1 = ttk.Entry(self._frame2)
+        entry2 = ttk.Entry(self._frame2)
+        entry3 = ttk.Entry(self._frame2)
+        entry4 = ttk.Entry(self._frame2)
         
         entry1.grid(row=current_row, column=0)
         entry2.grid(row=current_row, column=1)
         entry3.grid(row=current_row, column=2)
         entry4.grid(row=current_row, column=3)
         
-        self.rows.append(len(self.rows))
         self.entries.append([self.wod_name_entry,entry1, entry2, entry3, entry4])
         
     def save(self):
@@ -66,16 +65,16 @@ class NewWodView:
         self.wod_name_entry = ttk.Entry(master=self._frame)
         
         exercise_name_label = ttk.Label(master=self._frame, text="Exercise")
-        exercise_name_entry = ttk.Entry(master=self._frame)
+        exercise_name_entry = ttk.Entry(master=self._frame2)
 
         sets_label = ttk.Label(master=self._frame, text="Number of sets")
-        sets_entry = ttk.Entry(master=self._frame)
+        sets_entry = ttk.Entry(master=self._frame2)
 
         reps_label = ttk.Label(master=self._frame, text="Number of reps")
-        reps_entry = ttk.Entry(master=self._frame)
+        reps_entry = ttk.Entry(master=self._frame2)
 
         weights_label = ttk.Label(master=self._frame, text="Weights")
-        weights_entry = ttk.Entry(master=self._frame)
+        weights_entry = ttk.Entry(master=self._frame2)
 
         workout_program_button = ttk.Button(
             master=self._frame3,
@@ -84,7 +83,7 @@ class NewWodView:
         )
 
         add_new_row_button = ttk.Button(
-            master=self._frame2,
+            master=self._frame3,
             text="Add new exercise",
             command=self.create_new_row
             )
@@ -98,22 +97,22 @@ class NewWodView:
         wod_name.grid(row=0, column=0)
         self.wod_name_entry.grid(row=0, column=1)
         
-        exercise_name_label.grid(row=2, column=0)
-        exercise_name_entry.grid(row=3, column=0)
+        exercise_name_label.grid(row=1, column=0)
+        exercise_name_entry.grid(row=0, column=0)
 
-        sets_label.grid(row=2, column=1)
-        sets_entry.grid(row=3, column=1)
+        sets_label.grid(row=1, column=1)
+        sets_entry.grid(row=0, column=1)
         
-        reps_label.grid(row=2, column=2)
-        reps_entry.grid(row=3, column=2)
+        reps_label.grid(row=1, column=2)
+        reps_entry.grid(row=0, column=2)
         
-        weights_label.grid(row=2, column=3)
-        weights_entry.grid(row=3, column=3)
+        weights_label.grid(row=1, column=3)
+        weights_entry.grid(row=0, column=3)
 
-        add_new_row_button.grid(row=len(self.rows), column=0)        
+        add_new_row_button.grid(row=0, column=0)        
 
-        save_button.grid(row=0, column=0)
-        workout_program_button.grid(row=0,column=1)
+        save_button.grid(row=0, column=1)
+        workout_program_button.grid(row=0,column=2)
 
         self.entries.append([self.wod_name_entry,
                              exercise_name_entry,
