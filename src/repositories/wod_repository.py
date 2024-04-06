@@ -31,13 +31,11 @@ class WodRepository:
 
         cursor.execute("SELECT wod_name FROM wod_id_table WHERE wod_name=?", (wod_name,))
         result = cursor.fetchone()
-        if result is not None:
-            return
-
-        cursor.execute("""
-            INSERT INTO wod_id_table (wprogram_id, wod_name)
-            VALUES (?, ?)""", 
-            (wprogram_id, wod_name))
+        if result is None:
+            cursor.execute("""
+                INSERT INTO wod_id_table (wprogram_id, wod_name)
+                VALUES (?, ?)""", 
+                (wprogram_id, wod_name))
         
         
         cursor.execute("SELECT id FROM wod_id_table WHERE wod_name = ?", (wod_name,))

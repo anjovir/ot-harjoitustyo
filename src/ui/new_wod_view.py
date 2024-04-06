@@ -43,7 +43,7 @@ class NewWodView:
     def save(self):
         rep = WodRepository()
         wprogram_id = 1
-        
+
         for entry in self.entries:
             exercise = entry[1].get()
             sets = entry[2].get()
