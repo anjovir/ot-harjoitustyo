@@ -5,21 +5,27 @@ import sqlite3
 class WorkoutProgramRepository:
     def __init__(self):
         self._connection = get_database_connection()
+        self._c = self._connection.cursor()
     
-    def find_all(self):
-        cursor = self._connection.cursor()
+    def find_wprogram_name(self):
+        self._c.execute("SELECT wprogram_name FROM workout_program WHERE id=1")
+        return self._c.fetchone()[0]
+    
+    
+    #def find_all(self):
+    #    cursor = self._connection.cursor()
 
-        cursor.execute("""SELECT workout_program.id, 
-                       workout_program.wprogram_name, 
-                       wod.wod_name 
-                       FROM wod 
-                       INNER JOIN workout_program 
-                       ON wod.wprogram_id = workout_program.id;
-                       """)
+        #cursor.execute("""SELECT workout_program.id, 
+        #               workout_program.wprogram_name, 
+        #               wod.wod_name 
+        #               FROM wod 
+        #               INNER JOIN workout_program 
+        #               ON wod.wprogram_id = workout_program.id;
+        #               """)
 
-        rows = cursor.fetchall()
+        #rows = cursor.fetchall()
 
-        return [WorkoutProgram(row["id"],row["wprogram_name"], row["wod_name"]) for row in rows]
+        #return [WorkoutProgram(row["id"],row["wprogram_name"], row["wod_name"]) for row in rows]
     
     def find_all_distinct_wods(self):
         cursor = self._connection.cursor()

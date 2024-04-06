@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import font as tkfont
 from repositories.wprogram_repository import WorkoutProgramRepository
 from entities.workout_program import WorkoutProgram
+from services.wprogram_service import WprogramService
 
 class WorkoutView:
 
@@ -42,8 +43,10 @@ class WorkoutView:
         self._frame1 = ttk.Frame(master=self._root)
         self._frame2 = ttk.Frame(master=self._root)
         self._frame3 = ttk.Frame(master=self._root)
-        wpr = WorkoutProgramRepository()
-        workouts = wpr.find_all_distinct_wods()
+
+        workouts = WprogramService().initialize_wp_view()
+        check = WprogramService().check_if_db_empty()
+        print(workouts)
         
         workout_name = ttk.Label(master=self._frame1, text= workouts[0].program_name(),
                                  font=self.title, padding=5)
@@ -61,7 +64,9 @@ class WorkoutView:
             text="Check the workout",
             command=lambda wod_id=workout.wod_id(): self._handle_check_wod(wod_id))
             
-            wod_button.grid(row=counter, column=1)            
+            if check == False:
+                wod_button.grid(row=counter, column=1)  
+
             counter += 1
     
         new_wod_button = ttk.Button(
