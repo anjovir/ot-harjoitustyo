@@ -31,13 +31,6 @@ class WorkoutView:
         self._frame1.destroy()
         self._frame2.destroy()
         self._frame3.destroy()
-    
-    def save(self):
-        rep = WorkoutProgramRepository()
-        for entry in self.entries:
-            wlabel = entry[0].get()
-            weekday = entry[1].get()
-            rep.write("Workout program",wlabel, weekday)
 
     def _initialize(self):
         self._frame1 = ttk.Frame(master=self._root)
