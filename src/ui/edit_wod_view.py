@@ -1,5 +1,6 @@
 from tkinter import ttk, constants
 from repositories.wod_repository import WodRepository
+from services.wod_service import WodService
 
 class EditWodView:
     def __init__(self, root, handle_workout_view, handle_wod_view, wod_id):
@@ -12,6 +13,7 @@ class EditWodView:
         
         self.entries = []
         self.wod_id = wod_id
+        self._ws = WodService()
 
         self._initialize()
     
@@ -42,12 +44,11 @@ class EditWodView:
         entry4.grid(row=current_row, column=3)
         
         self.entries.append([self.wod_name_entry,entry1, entry2, entry3, entry4])
-        last_id = self.wr.add_new_row_when_updating(self.wod_id)
-        self.ids.append(last_id)
+        self.ids.append(self._ws.return_last_id(self.wod_id))
         
     def save(self):
-        wprogram_id = 1
         id_counter = 0
+        content = []
         
         for entry in self.entries:
             exercise = entry[1].get()
@@ -56,16 +57,17 @@ class EditWodView:
             weights = entry[4].get()
             row_id = self.ids[id_counter]
         
-            self.wr.edit(row_id,
-                     self.wod_id,
-                      self.wod_name_entry.get(),
-                      wprogram_id,
-                      exercise,
-                      sets,
-                      reps,
-                      weights)
-            
+            content.append([row_id,
+                    self.wod_id,
+                    self.wod_name_entry.get(),
+                    exercise,
+                    sets,
+                    reps,
+                    weights])
+
             id_counter += 1
+        
+        self._ws.update_wod(content)
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
@@ -81,9 +83,8 @@ class EditWodView:
         reps_label = ttk.Label(master=self._frame, text="Number of reps")
         weights_label = ttk.Label(master=self._frame, text="Weights")
 
-        self.wr = WodRepository()
-        current_wod = self.wr.find_current_wod_by_id(self.wod_id)       
-
+        wod = self._ws.initialize_wod_view(self.wod_id)
+        
         workout_program_button = ttk.Button(
             master=self._frame3,
             text="Back to workout program",
@@ -108,41 +109,36 @@ class EditWodView:
             command=lambda w_id=self.wod_id: self.handle_wod_view(w_id)
             )
         
-            
         wod_name.grid(row=0, column=0)
         self.wod_name_entry.grid(row=0, column=1)
-        self.wod_name_entry.insert(0,current_wod[0].return_args()[0])
+        self.wod_name_entry.insert(0,wod[0][0])
 
-        
         exercise_name_label.grid(row=2, column=0)
         sets_label.grid(row=2, column=1)
         reps_label.grid(row=2, column=2)
         weights_label.grid(row=2, column=3)
 
-        self.wr = WodRepository()
-        current_wod = self.wr.find_current_wod_by_id(self.wod_id)
-
         self.ids = []
-        self.wod_id = current_wod[0].return_args()[5]
+        self.wod_id = wod[0][5]
 
-        for i in range(len(current_wod)):
+        for i in range(len(wod)):
             exercise_name_entry = ttk.Entry(master=self._frameb)
             exercise_name_entry.grid(row=i, column=0)
-            exercise_name_entry.insert(0,current_wod[i].return_args()[1])
+            exercise_name_entry.insert(0,wod[i][1])
             
             sets_entry = ttk.Entry(master=self._frameb)
             sets_entry.grid(row=i, column=1)
-            sets_entry.insert(0,current_wod[i].return_args()[2])
+            sets_entry.insert(0,wod[i][2])
         
             reps_entry = ttk.Entry(master=self._frameb)
             reps_entry.grid(row=i, column=2)
-            reps_entry.insert(0,current_wod[i].return_args()[3])
+            reps_entry.insert(0,wod[i][3])
 
             weights_entry = ttk.Entry(master=self._frameb)
             weights_entry.grid(row=i, column=3)
-            weights_entry.insert(0,current_wod[i].return_args()[4])
+            weights_entry.insert(0,wod[i][4])
 
-            self.ids.append(current_wod[i].return_args()[6])
+            self.ids.append(wod[i][6])
 
             self.entries.append([self.wod_name_entry,
                              exercise_name_entry,
