@@ -10,7 +10,6 @@ class EditWodView:
         self._frame2 = None
         self._frame3 = None
         
-        self.rows = [0,1,2,3]
         self.entries = []
         self.wod_id = wod_id
 
@@ -30,7 +29,7 @@ class EditWodView:
         self._frame3.destroy()
     
     def create_new_row(self):
-        current_row = len(self.rows)
+        current_row = len(self.entries)
         
         entry1 = ttk.Entry(self._frameb)
         entry2 = ttk.Entry(self._frameb)
@@ -42,7 +41,6 @@ class EditWodView:
         entry3.grid(row=current_row, column=2)
         entry4.grid(row=current_row, column=3)
         
-        self.rows.append(len(self.rows))
         self.entries.append([self.wod_name_entry,entry1, entry2, entry3, entry4])
         last_id = self.wr.add_new_row_when_updating(self.wod_id)
         self.ids.append(last_id)
@@ -152,7 +150,7 @@ class EditWodView:
                              reps_entry,
                              weights_entry])
 
-        add_new_row_button.grid(row=len(self.rows), column=0)        
+        add_new_row_button.grid(row=0, column=0)        
 
         save_button.grid(row=0, column=0)
         workout_program_button.grid(row=0,column=1)
