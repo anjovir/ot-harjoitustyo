@@ -18,5 +18,9 @@
 |31.3.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen |
 |1.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen|
 |2.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen|
-|Summa|18,5||
+|3.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen|
+|4.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen|
+|5.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen, bugien korjailu|
+|6.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen, koodin osittaminen|
+|Summa|22,5||
 
