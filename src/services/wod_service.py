@@ -8,10 +8,12 @@ class WodService:
         self._wod_repo = WodRepository()
         self._wod = Wod()
     
-    def initialize_wod_view(self):
-        if self._wod_repo:
-            return self._wod_repo
-        return [self._wod]
+    def initialize_wod_view(self, wod_id):
+        wod = self._wod_repo.find_current_wod_by_id(wod_id)
+        content = []
+        for exercise in wod:
+            content.append(exercise.return_args())
+        return content
 
         
     def save_new_wod(self, entries):

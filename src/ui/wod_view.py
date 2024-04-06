@@ -35,10 +35,9 @@ class WodView:
         self._frame2 = ttk.Frame(master=self._root)
         self._frame3 = ttk.Frame(master=self._root)
 
-        wr = WodRepository()
-        current_wod = wr.find_current_wod_by_id(self.wod_id)
+        wod = WodService().initialize_wod_view(self.wod_id)
                
-        wod_name = ttk.Label(master=self._frame, text=(f"Wod name: {current_wod[0].return_args()[0]}"))
+        wod_name = ttk.Label(master=self._frame, text=(f"Wod name: {wod[0][0]}"))
         exercise_name_label = ttk.Label(master=self._frame, text="Exercise")
         sets_label = ttk.Label(master=self._frame, text="Number of sets")
         reps_label = ttk.Label(master=self._frame, text="Number of reps")
@@ -59,14 +58,14 @@ class WodView:
         workout_program_button.grid(row=0,column=1)       
         
         i = 3
-        for wod in current_wod:
-            exercise = ttk.Label(master=self._frame, text= wod.return_args()[1])
+        for ex in wod:
+            exercise = ttk.Label(master=self._frame, text= ex[1])
             exercise.grid(row=i, column=0)
-            sets = ttk.Label(master=self._frame, text= wod.return_args()[2])
+            sets = ttk.Label(master=self._frame, text=ex[2])
             sets.grid(row=i, column=1)
-            reps = ttk.Label(master=self._frame, text= wod.return_args()[3])
+            reps = ttk.Label(master=self._frame, text=ex[3])
             reps.grid(row=i, column=2)
-            weights = ttk.Label(master=self._frame, text= wod.return_args()[4])
+            weights = ttk.Label(master=self._frame, text=ex[4])
             weights.grid(row=i, column=3)
             i += 1
             
