@@ -1,6 +1,7 @@
 from tkinter import ttk, constants
 from repositories.wod_repository import WodRepository
 from entities.wod import Wod
+from services.wod_service import WodService
 
 class WodView:
 
@@ -75,7 +76,7 @@ class WodView:
             command=lambda w_id=self.wod_id: self.hande_edit_wod(w_id)
         )
 
-        wod_edit_button.grid(row=1, column=0)
+        wod_edit_button.grid(row=0, column=0)
         
         
         

@@ -8,7 +8,13 @@ class Wod:
         reps
         weights
     '''
-    def __init__(self, wod_name, exercise, sets, reps, weights, id, row_id):
+    def __init__(self, wod_name="Default", 
+                 exercise="", 
+                 sets="", 
+                 reps="", 
+                 weights="", 
+                 id="", 
+                 row_id=""):
         ''' Class constructor, which creates a new workout program
 
         Args:
