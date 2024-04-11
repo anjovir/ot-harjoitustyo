@@ -5,6 +5,7 @@ from repositories.wprogram_repository import WorkoutProgramRepository
 from entities.workout_program import WorkoutProgram
 from services.wprogram_service import WprogramService
 
+
 class WorkoutView:
 
     def __init__(self, root, handle_wod, handle_new_wod, handle_logout):
@@ -15,19 +16,19 @@ class WorkoutView:
         self._frame1 = None
         self._frame2 = None
         self._frame3 = None
-        
-        self.rows = [0,1,2,3]
+
+        self.rows = [0, 1, 2, 3]
         self.entries = []
 
         self.title = tkfont.Font(family='Helvetica', size=18, weight="bold")
 
         self._initialize()
-    
+
     def pack(self):
         self._frame1.pack(fill=constants.X)
         self._frame2.pack(fill=constants.X)
         self._frame3.pack(fill=constants.X)
-    
+
     def destroy(self):
         self._frame1.destroy()
         self._frame2.destroy()
@@ -40,28 +41,28 @@ class WorkoutView:
 
         workouts = WprogramService().initialize_wp_view()
         check = WprogramService().check_if_db_empty()
-        
-        workout_name = ttk.Label(master=self._frame1, text= workouts[0].program_name(),
+
+        workout_name = ttk.Label(master=self._frame1, text=workouts[0].program_name(),
                                  font=self.title, padding=5)
         workout_name.grid(row=0, column=0, columnspan=2)
 
         counter = 1
 
-        for workout in workouts: 
-            wod = ttk.Label(master=self._frame2, text= workout.wod_name())
-             
+        for workout in workouts:
+            wod = ttk.Label(master=self._frame2, text=workout.wod_name())
+
             wod.grid(row=counter, column=0)
-            
+
             wod_button = ttk.Button(
-            master=self._frame2,
-            text="Check the workout",
-            command=lambda wod_id=workout.wod_id(): self._handle_check_wod(wod_id))
-            
+                master=self._frame2,
+                text="Check the workout",
+                command=lambda wod_id=workout.wod_id(): self._handle_check_wod(wod_id))
+
             if check == False:
-                wod_button.grid(row=counter, column=1)  
+                wod_button.grid(row=counter, column=1)
 
             counter += 1
-    
+
         new_wod_button = ttk.Button(
             master=self._frame3,
             text="New WOD",

@@ -13,13 +13,13 @@ class LoginView:
         self._password_entry = None
 
         self._initialize()
-    
+
     def pack(self):
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
         self._frame.destroy()
-    
+
     def _login_handler(self):
         username = self._username_entry.get()
         password = self._password_entry.get()
@@ -29,14 +29,14 @@ class LoginView:
             self._handle_login()
         except:
             self._show_error("Invalid username or password")
-    
+
     def _show_error(self, message):
         self._error_variable.set(message)
         self._error_label.grid(padx=5, pady=5, sticky=constants.EW)
-    
+
     def _hide_error(self):
         self._error_label.grid_remove()
-    
+
     def _initialize_username_field(self):
         username_label = ttk.Label(master=self._frame, text="Username")
 
@@ -52,7 +52,7 @@ class LoginView:
 
         password_label.grid(padx=5, pady=5, sticky=constants.W)
         self._password_entry.grid(padx=5, pady=5, sticky=constants.EW)
-    
+
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
@@ -87,10 +87,3 @@ class LoginView:
         create_user_button.grid(padx=5, pady=5, sticky=constants.EW)
 
         self._hide_error()
-        
-
-
-
-
-
-

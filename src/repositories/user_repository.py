@@ -2,8 +2,10 @@ from entities.user import User
 from database_connection import get_database_connection
 from repositories.wprogram_repository import WorkoutProgramRepository
 
+
 def get_user_by_row(row):
     return User(row["username"], row["password"]) if row else None
+
 
 class UserRepository:
     def __init__(self):
@@ -56,4 +58,4 @@ class UserRepository:
         self._connection.commit()
 
 
-#user_repository = UserRepository(get_database_connection())
+# user_repository = UserRepository(get_database_connection())
