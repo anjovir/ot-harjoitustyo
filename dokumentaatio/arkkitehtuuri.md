@@ -1,3 +1,3 @@
 Ohjelma perustuu kerrosarkkitehtuurin seuraavan pakkauskaavion mukaisesti:
 ![Pakkauskaavio]
-(dokumentaatio/Pakkauskaavio.png)
+(dokumentaatio/kuvat/Pakkauskaavio.png)
