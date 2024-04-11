@@ -7,10 +7,11 @@ from services.wprogram_service import WprogramService
 
 class WorkoutView:
 
-    def __init__(self, root, handle_wod, handle_new_wod):
+    def __init__(self, root, handle_wod, handle_new_wod, handle_logout):
         self._root = root
         self._handle_check_wod = handle_wod
         self.handle_new_wod = handle_new_wod
+        self._handle_logout = handle_logout
         self._frame1 = None
         self._frame2 = None
         self._frame3 = None
@@ -67,3 +68,10 @@ class WorkoutView:
             command=self.handle_new_wod
         )
         new_wod_button.grid(row=0, column=0)
+
+        logout = ttk.Button(
+            master=self._frame3,
+            text="Logout",
+            command=self._handle_logout
+        )
+        logout.grid(row=0, column=1)

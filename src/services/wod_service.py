@@ -2,6 +2,7 @@ from entities.wod import Wod
 from entities.workout_program import WorkoutProgram
 from repositories.wod_repository import WodRepository
 from repositories.wprogram_repository import WorkoutProgramRepository
+from services.user_service import user_service
 
 class WodService:
     def __init__(self):
@@ -16,7 +17,7 @@ class WodService:
         return content
 
     def save_new_wod(self, entries):
-        wprogram_id = 1
+        wprogram_id = WorkoutProgramRepository().find_wprogram_id_by_user(user_service.get_current_user())
         
         for entry in entries:
             self._wr.write(entry[0],

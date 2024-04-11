@@ -1,4 +1,4 @@
-## Week 3
+## Viikko 3
 
 - Luotu treeniohjelma-sivu, johon listataan ohjelmaan linkitetyt treenit
 - Käyttäjä voi luoda treeniohjelmaan uuden treenin
@@ -9,3 +9,11 @@
 -- repositories: wod_repository, wprogram_repository
 -- entities: wod, workout_program
 -- UI: edit_wod_view, new_wod_view, ui, wod_view, workout_view
+
+
+## Viikko 4
+
+- Käyttäjän luominen ja sisäänkirjautuminen
+- Luotu luokat user.py, user_repository.py, user_service.py, create_user.py, login_view.py
+- pohjana hyödynnetty kurssin esimerkkisovelluksen tehtävälistan sisäänkirjautumistoimintoa ja käyttäjähallintaa, jota muokattu sovellukseen sopivaksi
+- muokattu lisäksi tiedostoja wprogram_service, wod_service, edit_wod_view, workout_view, ui, initialize_data

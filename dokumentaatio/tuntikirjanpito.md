@@ -22,5 +22,10 @@
 |4.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen|
 |5.4.| 1 | Viikko3, h2, tallennetun treenin muokkaaminen, bugien korjailu|
 |6.4.| 4 | Viikko3, h2, tallennetun treenin muokkaaminen, koodin osittaminen|
-|Summa|25,5||
+|7.4.|1|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
+|8.4.|1|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
+|9.4.|1|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
+|10.4.|2|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
+|11.4.|0,5|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
+|Summa|30,5||
 

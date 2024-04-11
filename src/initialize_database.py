@@ -25,8 +25,14 @@ def create_tables(connection):
 
     cursor.execute('''
         create table users (
-            username TEXT PRIMARY KEY,
-            password TEXT
+            id INTEGER PRIMARY KEY,
+            username TEXT,
+            password TEXT,
+            wprogram_id,
+            
+            FOREIGN KEY (wprogram_id)
+            REFERENCES workout_program (id)
+                   
         );
     ''')
 
@@ -63,12 +69,6 @@ def create_tables(connection):
                 
         );
     ''')
-
-    cursor.execute('''
-        INSERT INTO workout_program (wprogram_name)
-        VALUES ("My Workout Program");
-    ''')
-
 
     connection.commit()
 

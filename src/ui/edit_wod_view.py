@@ -105,7 +105,7 @@ class EditWodView:
 
         wod_button = ttk.Button(
             master=self._frame3,
-            text=f"Back to  {self.wod_id}",
+            text=f"Back to workout",
             command=lambda w_id=self.wod_id: self.handle_wod_view(w_id)
             )
         
@@ -149,8 +149,8 @@ class EditWodView:
         add_new_row_button.grid(row=0, column=0)        
 
         save_button.grid(row=0, column=0)
-        workout_program_button.grid(row=0,column=1)
-        wod_button.grid(row=5, column=5)
+        wod_button.grid(row=0, column=1)
+        workout_program_button.grid(row=0,column=2)
 
         
         
