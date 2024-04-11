@@ -26,6 +26,6 @@
 |8.4.|1|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
 |9.4.|1|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
 |10.4.|2|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
-|11.4.|0,5|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
-|Summa|30,5||
+|11.4.|1,5|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
+|Summa|31,5||
 
