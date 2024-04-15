@@ -4,5 +4,4 @@ __pycache__
 htmlcov
 /data/database.sqlite
 /data/database_schema.sql
-/src/tests
 tasks.py
