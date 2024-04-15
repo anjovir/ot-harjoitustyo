@@ -4,8 +4,5 @@ __pycache__
 htmlcov
 /data/database.sqlite
 /data/database_schema.sql
-poetry.lock
-pyproject.toml
 /src/tests
-.coveragerc
 tasks.py

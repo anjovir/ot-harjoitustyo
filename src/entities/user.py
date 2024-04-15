@@ -13,4 +13,4 @@ class User:
     #    return self.wprogram_id
 
     def __str__(self):
-        return f"username: {self.username}"
+        return f"username: {self.username}, password: {self.password}"
