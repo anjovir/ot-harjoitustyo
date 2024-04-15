@@ -1,5 +1,4 @@
 from entities.wod import Wod
-from entities.workout_program import WorkoutProgram
 from repositories.wod_repository import WodRepository
 from repositories.wprogram_repository import WorkoutProgramRepository
 from services.user_service import user_service

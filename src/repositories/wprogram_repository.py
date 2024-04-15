@@ -1,6 +1,5 @@
 from entities.workout_program import WorkoutProgram
 from database_connection import get_database_connection
-import sqlite3
 
 
 class WorkoutProgramRepository:
@@ -11,7 +10,7 @@ class WorkoutProgramRepository:
     def find_wprogram_id_by_user(self, user):
         cursor = self._connection.cursor()
 
-        cursor.execute("""SELECT workout_program.id 
+        cursor.execute("""SELECT workout_program.id
                         FROM workout_program
                         INNER JOIN users
                         ON  workout_program.id = users.wprogram_id
@@ -27,7 +26,7 @@ class WorkoutProgramRepository:
     def find_all_distinct_wods_by_wp_id(self, wp_id):
         cursor = self._connection.cursor()
 
-        cursor.execute("""SELECT DISTINCT workout_program.id, 
+        cursor.execute("""SELECT DISTINCT workout_program.id,
                        workout_program.wprogram_name, 
                        wod_id_table.wod_name,
                        wod_id_table.id
@@ -39,12 +38,16 @@ class WorkoutProgramRepository:
 
         rows = cursor.fetchall()
 
-        return [WorkoutProgram(row["id"], row["wprogram_name"], row["wod_name"], row[3]) for row in rows]
+        return [WorkoutProgram(row["id"],
+                               row["wprogram_name"],
+                               row["wod_name"],
+                               row[3])
+                               for row in rows]
 
     def find_the_wod(self, wod_name):
         cursor = self._connection.cursor()
 
-        cursor.execute("""SELECT workout_program.id,  
+        cursor.execute("""SELECT workout_program.id,
                        wod_id_table.wod_name, 
                        FROM wod_id_table
                        INNER JOIN workout_program 
@@ -64,6 +67,4 @@ class WorkoutProgramRepository:
 
         self._connection.commit()
 
-        id = cursor.lastrowid
-
-        return id
+        return cursor.lastrowid

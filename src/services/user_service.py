@@ -34,7 +34,7 @@ class UserService:
     def logout(self):
         self._user = None
 
-    def create_user(self, username, password, wprogram_id, login=True):
+    def create_user(self, username, password, login=True):
 
         existing_user = self._user_repository.find_by_username(username)
 

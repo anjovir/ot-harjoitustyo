@@ -14,7 +14,7 @@ class Wod:
                  sets="",
                  reps="",
                  weights="",
-                 id="",
+                 w_id="",
                  row_id=""):
         ''' Class constructor, which creates a new workout program
 
@@ -27,7 +27,7 @@ class Wod:
 
         '''
         self.row_id = row_id
-        self.id = id
+        self.id = w_id
         self.wod_name = wod_name
         self.exercise = exercise
         self.sets = sets
@@ -35,4 +35,10 @@ class Wod:
         self.weights = weights
 
     def return_args(self):
-        return [self.wod_name, self.exercise, self.sets, self.reps, self.weights, self.id, self.row_id]
+        return [self.wod_name,
+                self.exercise,
+                self.sets,
+                self.reps,
+                self.weights,
+                self.id,
+                self.row_id]
