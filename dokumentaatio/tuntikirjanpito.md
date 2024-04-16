@@ -29,6 +29,8 @@
 |11.4.|1,5|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
 |12.4.|1,5|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
 |15.4.|1|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
+|16.4.|0,5|Viikko 4, luokkakaavion ja dokumentaation päivittäminen|
+
 
 
 |Summa|34,5||
