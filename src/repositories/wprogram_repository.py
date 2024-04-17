@@ -42,7 +42,7 @@ class WorkoutProgramRepository:
                                row["wprogram_name"],
                                row["wod_name"],
                                row[3])
-                               for row in rows]
+                for row in rows]
 
     def find_the_wod(self, wod_name):
         cursor = self._connection.cursor()
@@ -68,3 +68,10 @@ class WorkoutProgramRepository:
         self._connection.commit()
 
         return cursor.lastrowid
+
+    def delete_wod(self, wod_id):
+        cursor = self._connection.cursor()
+
+        cursor.execute("DELETE FROM wod_id_table WHERE id = ?", (wod_id,))
+
+        self._connection.commit()

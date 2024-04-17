@@ -30,8 +30,10 @@
 |12.4.|1,5|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
 |15.4.|1|Viikko 4, sisäänkirjautuminen, käyttäjän luominen|
 |16.4.|0,5|Viikko 4, luokkakaavion ja dokumentaation päivittäminen|
+|17.4.|1,5|Viikko 5, lisättiin päiväkohtaisen treenin poistamisen toiminnallisuus|
 
 
 
-|Summa|35||
+
+|Summa|36||
 

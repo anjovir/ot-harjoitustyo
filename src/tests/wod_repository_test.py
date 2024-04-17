@@ -14,18 +14,14 @@ class TestWodRepository(unittest.TestCase):
         self._reps = 10
         self._weights = 70
         self._c = self._wr._connection.cursor()
-        
 
     def test_constructor_returns_the_right_default_name(self):
         pass
 
     def test_write_method(self):
-        self._wr.write(self._wod_name, self._wprogram_id, self._exercise, self._sets, self._reps, self._weights)
+        self._wr.write(self._wod_name, self._wprogram_id,
+                       self._exercise, self._sets, self._reps, self._weights)
         self._c.execute("SELECT * FROM wod_exercises")
 
         answer = self._c.fetchall()[0]
         self.assertEqual(answer[2], self._exercise)
-        
-        
-
-        

@@ -56,6 +56,7 @@ def create_tables(connection):
                    
             FOREIGN KEY (wod_id)
             REFERENCES wod_id_table (id)
+            ON DELETE CASCADE
                 
         );
     ''')
@@ -68,6 +69,7 @@ def create_tables(connection):
                    
             FOREIGN KEY (wprogram_id)
             REFERENCES workout_program (id)
+            ON DELETE CASCADE
                 
         );
     ''')

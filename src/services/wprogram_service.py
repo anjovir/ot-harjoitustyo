@@ -23,3 +23,6 @@ class WprogramService:
         if len(self._wpr.find_all_distinct_wods_by_wp_id(wp_id)) > 0:
             return False
         return True
+
+    def delete_wod(self, wod_id):
+        self._wpr.delete_wod(wod_id)

@@ -30,7 +30,7 @@ class WodRepository:
                     row["reps"],
                     row["weights"],
                     row[1], row[2])
-                    for row in rows]
+                for row in rows]
 
     def write(self, wod_name, wprogram_id, exercise, sets, reps, weights):
         cursor = self._connection.cursor()

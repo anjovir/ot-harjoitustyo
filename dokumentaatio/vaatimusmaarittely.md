@@ -18,7 +18,7 @@ Aluksi sovellukseen toteutetaan vain peruskäyttäjän rooli. Myöhemmin voidaan
   - Näkyvyys ainoastaan kirjautuneelle käyttäjälle [tehty]
 - Käyttäjä voi lisätä treeniohjelmaan treeniliikkeen, sarjojen ja toistojen määrän sekä käytettävät painot [tehty]
 - Käyttäjä voi muokata treeniohjelmaa [tehty]
-- Käyttäjä voi poistaa treeniohjelman
+- Käyttäjä voi poistaa päiväkohtaisen treeniohjelman [tehty]
 - Käyttäjä voi kirjautua ulos järjestelmästä [tehty]
 
 ## Jatkokehitysideoita
