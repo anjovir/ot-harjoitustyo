@@ -15,7 +15,7 @@ class WorkoutProgramRepository:
                         INNER JOIN users
                         ON  workout_program.id = users.wprogram_id
                         WHERE users.username = ?""",
-                       (user.username,))
+                       (user.username(),))
 
         return cursor.fetchone()[0]
 

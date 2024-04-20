@@ -33,8 +33,8 @@ class UserRepository:
         return get_user_by_row(row)
 
     def create(self, user):
-        username = user.username
-        password = user.password
+        username = user.username()
+        password = user.password()
 
         cursor = self._connection.cursor()
 

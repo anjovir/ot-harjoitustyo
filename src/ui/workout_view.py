@@ -43,6 +43,8 @@ class WorkoutView:
 
     def delete_wod(self, wod_id, wl, db, wb):
         WprogramService().delete_wod(wod_id)
+        
+        #delete wod_label, delete_button, wod_button
         wl.destroy()
         db.destroy()
         wb.destroy()

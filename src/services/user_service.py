@@ -14,11 +14,12 @@ class UserService:
 
     def __init__(self):
         self._user_repository = UserRepository()
+        self._user = None
 
     def login(self, username, password):
         user = self._user_repository.find_by_username(username)
 
-        if not user or user.password != password:
+        if not user or user.password() != password:
             raise InvalidCredentialsError("Invalid username or password")
 
         self._user = user

@@ -83,12 +83,12 @@ def create_test_db(connection):
             "INSERT INTO workout_program (wprogram_name) VALUES ('Test workout program')"
             )
 
-    cursor.execute("""INSERT INTO wod_id_table (wprogram_id, wod_name) 
+    cursor.execute("""INSERT INTO wod_id_table (wprogram_id, wod_name)
                    VALUES (1, 'Test wod')""")
-    
+
     cursor.execute("""INSERT INTO wod_exercises (wod_id,exercise, sets, reps, weights)
             VALUES (1, 'Testipenkki', 3, 10, 70)""")
-    
+
     connection.commit()
 
 def initialize_database():
@@ -103,7 +103,7 @@ def initialize_test_database():
     drop_tables(connection)
     create_tables(connection)
     create_test_db(connection)
-    
+
     connection.commit()
 
 
