@@ -75,7 +75,7 @@ sequenceDiagram
   participant WorkoutProgramRepository
   User->>UI: click "New WOD" button
   UI->>UI: _show_new_wod_view()
-  User->>UI: Write workout name, exercise, sets, reps, weights
+  User->>UI: Fill in workout name, exercise, sets, reps, weights
   User->>UI: click "Save" button
   UI->>WodService: save_new_wod(entries)
   WodService->>UserService: get_current_user()
