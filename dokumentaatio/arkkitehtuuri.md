@@ -66,7 +66,7 @@ Käyttäjä tallentaa kuntosaliohjelmaan uuden treenin:
 
 ```mermaid
 sequenceDiagram
-  actor Use
+  actor User
   participant UI
   participant WodService
   participant WodRepository
