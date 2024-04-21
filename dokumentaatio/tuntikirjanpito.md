@@ -32,7 +32,8 @@
 |16.4.|0,5|Viikko 4, luokkakaavion ja dokumentaation päivittäminen|
 |17.4.|2|Viikko 5, lisättiin päiväkohtaisen treenin poistamisen toiminnallisuus|
 |18.4.|0,5|Viikko 5, lisättiin päiväkohtaisen treenin poistamisen toiminnallisuus|
-|20.4.|1|Viikko 5, pylintin huomioiden pohjalta koodin optimointia, dokumentaation päivittämistä jne.|
+|20.4.|1,5|Viikko 5, pylintin huomioiden pohjalta koodin optimointia, dokumentaation päivittämistä jne.|
+|21.4.|1|Viikko 5, lisätty user-olioon id-numeron päivitys create user metodin kohdalla, hiottu koodia lab-palautteen pohjalta|
 
 
 

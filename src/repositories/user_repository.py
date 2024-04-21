@@ -47,6 +47,10 @@ class UserRepository:
 
         self._connection.commit()
 
+        new_user_id = cursor.lastrowid
+
+        user.update_user_id(new_user_id)
+
         return user
 
     def delete_all(self):
