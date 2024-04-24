@@ -3,7 +3,15 @@ from database_connection import get_database_connection
 
 
 class WorkoutProgramRepository:
+    """Class for the Workout program repository
+    """
     def __init__(self):
+        """Class constructor
+
+        Args:
+        _connection = connection to db
+        _c = cursor method
+        """
         self._connection = get_database_connection()
         self._c = self._connection.cursor()
 

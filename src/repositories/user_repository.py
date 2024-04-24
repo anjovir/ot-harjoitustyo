@@ -4,11 +4,20 @@ from repositories.wprogram_repository import WorkoutProgramRepository
 
 
 def get_user_by_row(row):
-    return User(row["username"], row["password"]) if row else None
+    return User(row["username"], row["password"], row["id"]) if row else None
 
 
 class UserRepository:
+    """Class for the user repository"""
     def __init__(self):
+        """Class constructor
+
+        Args: 
+        _connection = connection to the db
+        wpr = WorkoutProgramRepository-object
+
+        """
+
         self._connection = get_database_connection()
         self.wpr = WorkoutProgramRepository()
 
@@ -53,11 +62,15 @@ class UserRepository:
 
         return user
 
-    def delete_all(self):
-
+    def delete_user_data(self, user):
         cursor = self._connection.cursor()
+        user_id = user.user_id()
 
-        cursor.execute("DELETE FROM users")
+        cursor.execute("SELECT wprogram_id FROM users WHERE id=?", (user_id, ))
+        wprogram_id = cursor.fetchone()[0]
+
+        cursor.execute("DELETE FROM workout_program WHERE id=?", (wprogram_id, ))
+        cursor.execute("DELETE FROM users WHERE id=?", (user_id, ))
 
         self._connection.commit()
 
