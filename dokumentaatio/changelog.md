@@ -22,3 +22,6 @@
 - käyttäjä voi poistaa päivän treenin omasta kuntosaliohjelmastaan
 - muokattu mm. tiedostoja workout_view, wprogram_service, wprogram_repository
 - luotu .env-muuttujat, joiden perusteella tietokannan sijainti määrittyy ja ohjelman voi alustaa komennolla invoke build
+
+## Viikko 6
+- Käyttäjä voi poistaa omat tietonsa, kuntosaliohjelmansa ja näihin liittyvät tiedot

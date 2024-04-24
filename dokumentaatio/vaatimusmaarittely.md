@@ -27,4 +27,4 @@ Aluksi sovellukseen toteutetaan vain peruskäyttäjän rooli. Myöhemmin voidaan
 - Käyttäjä voi tehdä tilastoja kehityksestä
 - Käyttäjä voi jakaa treeniohjelman muille käyttäjille
 - Käyttäjä voi tehdä useamman kuntosaliohjelman
-- Käyttäjätietojen ja siihen liittyvän datan poistaminen
+- Käyttäjätietojen ja siihen liittyvän datan poistaminen [tehty, viikko6]

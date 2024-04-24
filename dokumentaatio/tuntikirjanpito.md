@@ -34,8 +34,7 @@
 |18.4.|0,5|Viikko 5, lisättiin päiväkohtaisen treenin poistamisen toiminnallisuus|
 |20.4.|1,5|Viikko 5, pylintin huomioiden pohjalta koodin optimointia, dokumentaation päivittämistä jne.|
 |21.4.|1|Viikko 5, lisätty user-olioon id-numeron päivitys create user metodin kohdalla, hiottu koodia lab-palautteen pohjalta|
-
-
-
-|Summa|37,5||
+|23.4|1,5|Viikko 6, luotu poista käyttäjän tiedot -toiminto|
+|23.4|1|Viikko 6, docstringien teko, hiottu koodia|
+|Summa|42,5||
 
