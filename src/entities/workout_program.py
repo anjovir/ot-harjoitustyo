@@ -12,7 +12,7 @@ class WorkoutProgram:
                  wprogram_name="Default",
                  wod_name="",
                  wod_id=""):
-        ''' Class constructor, which creates a new workout program
+        """ Class constructor, which creates a new workout program
 
         Args:
             id: unique indentifier for the workout program
@@ -20,7 +20,8 @@ class WorkoutProgram:
             wod_name: string for the label of workout of the day
             self.w_id: id of the wod
 
-        '''
+        """
+
         self._id = wp_id
         self._wprogram_name = wprogram_name
         self._wod_name = wod_name
@@ -39,4 +40,7 @@ class WorkoutProgram:
         return self.w_id
 
     def __str__(self):
-        return f"WorkoutProgram: (id={self._id}, wprogram_name={self._wprogram_name}, wod_name={self._wod_name}, wod_id={self.w_id})"
+        return f"""WorkoutProgram: (id={self._id},\n
+                wprogram_name={self._wprogram_name},\n
+                wod_name={self._wod_name},\n
+                wod_id={self.w_id})"""

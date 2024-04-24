@@ -3,7 +3,11 @@ from database_connection import get_database_connection
 
 
 class WodRepository:
+    """Workout of the day repository
+    """
     def __init__(self):
+        """Class constructor, connection to db
+        """
         self._connection = get_database_connection()
 
     def find_current_wod_by_id(self, wod_id):
