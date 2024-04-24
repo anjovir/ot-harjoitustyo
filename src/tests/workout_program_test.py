@@ -11,4 +11,8 @@ class TestWorkoutProgram(unittest.TestCase):
         answer = str(workout_program)
 
         self.assertEqual(
-            answer, f"""WorkoutProgram: (id=1, wprogram_name=Testiohjelma, wod_name=Testitreeni, wod_id=1)""")
+            answer, 
+            f"""WorkoutProgram: (id=1,\n
+                wprogram_name=Testiohjelma,\n
+                wod_name=Testitreeni,\n
+                wod_id=1)""")

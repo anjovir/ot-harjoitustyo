@@ -3,6 +3,7 @@ from entities.user import User
 
 
 class TestUser(unittest.TestCase):
+
     def setUp(self):
         self._user = User("testihenkilö", "testisalasana",1)
 

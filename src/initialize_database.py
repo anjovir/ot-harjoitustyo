@@ -33,6 +33,7 @@ def create_tables(connection):
             
             FOREIGN KEY (wprogram_id)
             REFERENCES workout_program (id)
+            ON DELETE CASCADE
                    
         );
     ''')
@@ -87,7 +88,10 @@ def create_test_db(connection):
                    VALUES (1, 'Test wod')""")
 
     cursor.execute("""INSERT INTO wod_exercises (wod_id,exercise, sets, reps, weights)
-            VALUES (1, 'Testipenkki', 3, 10, 70)""")
+                VALUES (1, 'Testipenkki', 3, 10, 70)""")
+
+    cursor.execute("""INSERT INTO users (username, password, wprogram_id)
+                   VALUES ('Pekka', 'pekka1', 1)""")
 
     connection.commit()
 
