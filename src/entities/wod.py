@@ -27,7 +27,7 @@ class Wod:
             wod_id (str): identifier for the current wod (wod_id_table)
             row_id (str): identifier for the exercise (wod_exercises table)
         """
-        
+
         self.row_id = row_id
         self.id = w_id
         self.wod_name = wod_name
@@ -37,6 +37,11 @@ class Wod:
         self.weights = weights
 
     def return_args(self):
+        """Returns all class attributes in a list
+
+        Returns:
+            list: class attributes
+        """
         return [self.wod_name,
                 self.exercise,
                 self.sets,

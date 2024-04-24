@@ -40,6 +40,9 @@ class WorkoutProgram:
         return self.w_id
 
     def __str__(self):
+        """Returns description of class attributes
+            String: class attributes
+        """
         return f"""WorkoutProgram: (id={self._id},\n
                 wprogram_name={self._wprogram_name},\n
                 wod_name={self._wod_name},\n
