@@ -29,7 +29,8 @@ class WodService:
                            entry[4])
 
     def update_wod(self, entries):
-        wprogram_id = 1
+        wprogram_id = WorkoutProgramRepository().find_wprogram_id_by_user(
+            user_service.get_current_user())
 
         for entry in entries:
             self._wr.edit(entry[0],

@@ -35,6 +35,8 @@
 |20.4.|1,5|Viikko 5, pylintin huomioiden pohjalta koodin optimointia, dokumentaation päivittämistä jne.|
 |21.4.|1|Viikko 5, lisätty user-olioon id-numeron päivitys create user metodin kohdalla, hiottu koodia lab-palautteen pohjalta|
 |23.4|1,5|Viikko 6, luotu poista käyttäjän tiedot -toiminto|
-|23.4|1|Viikko 6, docstringien teko, hiottu koodia|
+|24.4|1|Viikko 6, docstringien teko, hiottu koodia|
+|27.4|1|Viikko 6,|
+
 |Summa|42,5||
 

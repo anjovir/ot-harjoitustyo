@@ -8,6 +8,7 @@ class CreateUserView:
                  root,
                  handle_create_user,
                  handle_show_login_view):
+        
         self._root = root
         self._handle_create_user = handle_create_user
         self._handle_show_login_view = handle_show_login_view

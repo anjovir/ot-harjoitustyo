@@ -38,7 +38,6 @@ class WodRepository:
 
     def write(self, wod_name, wprogram_id, exercise, sets, reps, weights):
         cursor = self._connection.cursor()
-
         cursor.execute(
             "SELECT wod_name FROM wod_id_table WHERE wod_name=?", (wod_name,))
         result = cursor.fetchone()

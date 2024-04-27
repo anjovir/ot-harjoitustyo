@@ -30,6 +30,18 @@ class WorkoutProgramRepository:
     def find_wprogram_name(self):
         self._c.execute("SELECT wprogram_name FROM workout_program WHERE id=1")
         return self._c.fetchone()[0]
+    
+    def find_wprogram_name_by_user(self, user):
+        cursor = self._connection.cursor()
+
+        cursor.execute("""SELECT workout_program.wprogram_name
+                        FROM workout_program
+                        INNER JOIN users
+                        ON  workout_program.id = users.wprogram_id
+                        WHERE users.username = ?""",
+                       (user.username(),))
+
+        return cursor.fetchone()[0]
 
     def find_all_distinct_wods_by_wp_id(self, wp_id):
         cursor = self._connection.cursor()
