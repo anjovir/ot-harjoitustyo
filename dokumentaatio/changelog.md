@@ -25,3 +25,5 @@
 
 ## Viikko 6
 - Käyttäjä voi poistaa omat tietonsa, kuntosaliohjelmansa ja näihin liittyvät tiedot
+- lisätty docstring-dokumentointia koodiin
+- refaktoroitu koodia

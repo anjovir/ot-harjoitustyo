@@ -36,7 +36,8 @@
 |21.4.|1|Viikko 5, lisätty user-olioon id-numeron päivitys create user metodin kohdalla, hiottu koodia lab-palautteen pohjalta|
 |23.4|1,5|Viikko 6, luotu poista käyttäjän tiedot -toiminto|
 |24.4|1|Viikko 6, docstringien teko, hiottu koodia|
-|27.4|1|Viikko 6,|
+|27.4|1|Viikko 6, korjattu koodin bugeja|
+|28.4|1|Viikko 6, refaktoroitu koodia sekä korjattu pieniä bugeja, thety docstring-dokumentointia|
 
 |Summa|42,5||
 

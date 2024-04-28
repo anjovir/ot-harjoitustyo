@@ -4,6 +4,14 @@ from repositories.wprogram_repository import WorkoutProgramRepository
 
 
 def get_user_by_row(row):
+    """Build user
+
+    Args:
+        row (sql row-object)
+
+    Returns:
+        User: [username, password, id]
+    """
     return User(row["username"], row["password"], row["id"]) if row else None
 
 
@@ -21,16 +29,15 @@ class UserRepository:
         self._connection = get_database_connection()
         self.wpr = WorkoutProgramRepository()
 
-    def find_all(self):
-        cursor = self._connection.cursor()
-
-        cursor.execute("SELECT * FROM users")
-
-        rows = cursor.fetchall()
-
-        return list(map(get_user_by_row, rows))
-
     def find_by_username(self, username):
+        """Find a user by username, build it with get_user_by_row
+
+        Args:
+            username (str)
+
+        Returns:
+            User: [username, password, id]
+        """
         cursor = self._connection.cursor()
 
         cursor.execute(
@@ -42,6 +49,19 @@ class UserRepository:
         return get_user_by_row(row)
 
     def create(self, user):
+        """Create a new user, 
+           fetch username and password from the entity
+           and save them to the db.
+           Create new workout program which will be referenced
+           in the users table.
+           Update User entity with the new user id
+
+        Args:
+            user: User-entity 
+
+        Returns:
+            user: User-entity
+        """
         username = user.username()
         password = user.password()
 
@@ -63,6 +83,14 @@ class UserRepository:
         return user
 
     def delete_user_data(self, user):
+        """Deletes all the data related to the user.
+            First we fetch wprogram_id from users-table.
+            Then we delete the workout_program which cascades
+            to all other tables.
+
+        Args:
+            user (User)
+        """
         cursor = self._connection.cursor()
         user_id = user.user_id()
 
@@ -70,7 +98,6 @@ class UserRepository:
         wprogram_id = cursor.fetchone()[0]
 
         cursor.execute("DELETE FROM workout_program WHERE id=?", (wprogram_id, ))
-        cursor.execute("DELETE FROM users WHERE id=?", (user_id, ))
 
         self._connection.commit()
 
