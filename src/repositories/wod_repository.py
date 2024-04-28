@@ -57,7 +57,7 @@ class WodRepository:
             weights (str)
         
         """
-        
+
         cursor = self._connection.cursor()
         cursor.execute("""
                 INSERT INTO wod_id_table (wprogram_id, wod_name)
@@ -110,7 +110,7 @@ class WodRepository:
              sets,
              reps,
              weights):
-        
+
         """Updates the db when editing an existing wod.
             First update wod_id_table
             then wod_exercises table

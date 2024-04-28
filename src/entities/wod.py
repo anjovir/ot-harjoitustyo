@@ -16,7 +16,7 @@ class Wod:
                  weights="",
                  w_id="",
                  row_id=""):
-        
+
         """ Class constructor, which creates a new workout program
         Args:
             wod_name (str): name of the workout of the day
