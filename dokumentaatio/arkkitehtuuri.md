@@ -1,10 +1,14 @@
 # Arkkitehtuuri
 
-## Pakkauskaavio
+## Rakenne
 
 Ohjelma perustuu kerrosarkkitehtuurin seuraavan pakkauskaavion mukaisesti:
 
 ![Pakkauskaavio](./kuvat/Pakkauskaavio.png)
+
+Pakkaus ui sisältää käyttöliittymän, services sovelluslogiikan ja repositories tietojen pysyväistallennuksen koodin. Entities sisältää luokkia, jotka ilmentävät sovelluksen käyttämiä tietokohteita.
+
+## Sovelluslogiikka
 
 Sovelluksen loogisen tietomallin muodostavat luokat User, Wod ja Workout_program:
 
@@ -44,9 +48,22 @@ Toiminnallisista kokonaisuuksista vastaavat luokat user_service, wod_service ja 
 - save_new_wod(entries)
 - initialize_wp_view()
 
-## Sekvenssidiagrammit
+UserService pääsee käsiksi käyttäjiin tietojen tallennuksesta vastaavan luokan kautta, joka sijaitsee repositories pakkauksen luokassa UserRepository. Vastaavasti Wprogram service pääsee käsiksi saman pakkauksen WorkoutProgramRepositoryn kautta kyseisen luokan dataan ja vastaava repository löytyy myös palvelulle WodService.
 
-Käyttäjä kirjautuu sisälle kuntosaliohjelmaansa:
+## Tietojen pysyväistallennus
+
+Pakkaus `repositories` sisältää luokat UserRepository, WorkoutProgramRepository ja WodRepository, joiden avulla tiedot voidaan tallentaa SQLite-tietokantaan.
+Luokat noudattavat Repository-suunnittelumallia ja ne on mahdollista korvata vaihtoehtoisilla toteutuksilla tallennustavan vaihtuessa.
+
+Sovelluksen juuresta löytyy .env-tiedosto, jossa on määritelty tiedostojen nimet.
+
+Sovelluksen tiedot tallennetaan SQLiten tietokantaan, joka alustetaan initialize_database.py-tiedostossa.
+
+## Keskeisiä toiminnallisuuksia
+
+Alla on kuvattu osa sovelluksen toiminnallisuuksista.
+
+### Käyttäjä kirjautuu sisälle kuntosaliohjelmaansa
 
 ```mermaid
 sequenceDiagram
@@ -62,7 +79,7 @@ sequenceDiagram
   UI->UI: _show_workout_view()
 ```
 
-Käyttäjä tallentaa kuntosaliohjelmaan uuden treenin:
+### Käyttäjä tallentaa kuntosaliohjelmaan uuden treenin
 
 ```mermaid
 sequenceDiagram
