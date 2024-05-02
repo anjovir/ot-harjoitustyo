@@ -127,6 +127,15 @@ class WodRepository:
         """
         cursor = self._connection.cursor()
 
+        cursor.execute("""SELECT wod_id FROM wod_exercises
+                       WHERE id = ?""", (row_id,))
+        
+        w_id = cursor.fetchone()
+        
+        
+        if not w_id or (isinstance(w_id[0], int) and w_id[0] != wod_id):
+            row_id = self.add_new_row_when_updating(wod_id)
+
         cursor.execute("""UPDATE wod_id_table
                        SET wod_name = ?,
                        wprogram_id = ?
@@ -142,7 +151,7 @@ class WodRepository:
                        reps = ?,
                        weights = ?
                        WHERE id = ?
-            """,
-                       (exercise, sets, reps, weights, row_id))
+                    """,
+                    (exercise, sets, reps, weights, row_id))
 
         self._connection.commit()

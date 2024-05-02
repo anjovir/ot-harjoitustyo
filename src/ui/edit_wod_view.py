@@ -45,7 +45,7 @@ class EditWodView:
 
         self.entries.append(
             [self.wod_name_entry, entry1, entry2, entry3, entry4])
-        self.ids.append(self._ws.return_last_id(self.wod_id))
+        #self.ids.append(self._ws.return_last_id(self.wod_id))
 
     def save(self):
         id_counter = 0
@@ -56,7 +56,11 @@ class EditWodView:
             sets = entry[2].get()
             reps = entry[3].get()
             weights = entry[4].get()
-            row_id = self.ids[id_counter]
+            if id_counter < len(self.ids):
+                row_id = self.ids[id_counter]
+            else:
+                #row_id is not yet made or references to another wod_id
+                row_id = self.ids[-1]+1
 
             content.append([row_id,
                             self.wod_id,
