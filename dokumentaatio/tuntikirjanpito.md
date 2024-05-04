@@ -39,8 +39,10 @@
 |27.4|1|Viikko 6, korjattu koodin bugeja|
 |28.4|2,5|Viikko 6, refaktoroitu koodia sekä korjattu pieniä bugeja, tehty docstring-dokumentointia|
 |29.4|1|Viikko 6, lisätty käyttöohje ja päivitetty arkkitehtuuria|
-|2.5|1|Viikko 7, korjattu wodin tallennusprosessi|
+|2.5|1|Viikko 7, korjattu wodin tallennusprosessia|
+|4.5|1|Viikko 7, korjattu lopullisesti wodin tallennusprosessi|
 
 
-|Summa|47||
+
+|Summa|48||
 

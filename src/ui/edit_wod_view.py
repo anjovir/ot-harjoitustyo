@@ -60,7 +60,7 @@ class EditWodView:
                 row_id = self.ids[id_counter]
             else:
                 #row_id is not yet made or references to another wod_id
-                row_id = self.ids[-1]+1
+                row_id = 0
 
             content.append([row_id,
                             self.wod_id,
@@ -72,7 +72,8 @@ class EditWodView:
 
             id_counter += 1
 
-        self._ws.update_wod(content)
+        self.ids = self._ws.update_wod(content)
+        
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

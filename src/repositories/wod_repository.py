@@ -155,3 +155,5 @@ class WodRepository:
                     (exercise, sets, reps, weights, row_id))
 
         self._connection.commit()
+
+        return row_id

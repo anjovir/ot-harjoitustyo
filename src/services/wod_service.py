@@ -51,16 +51,19 @@ class WodService:
         Args:
             entries (list): contains wod attributes
         """
-
+        row_ids = []
         for entry in entries:
-            self._wr.edit(entry[0],
+            row_ids.append(self._wr.edit(entry[0],
                           entry[1],
                           entry[2],
                           self._wprogram_id,
                           entry[3],
                           entry[4],
                           entry[5],
-                          entry[6])
+                          entry[6]))
+        
+        return row_ids
+        
 
     def return_last_id(self, wod_id):
         """Return wod_exercises new id when adding new row in the ui
