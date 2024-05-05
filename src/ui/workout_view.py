@@ -56,23 +56,17 @@ class WorkoutView:
         messagebox.showinfo("Succes", "User data deleted successfully")
         self._handle_logout()
 
-    def _initialize(self):
-        self._frame1 = ttk.Frame(master=self._root)
-        self._frame2 = ttk.Frame(master=self._root)
-        self._frame3 = ttk.Frame(master=self._root)
-
-        check = WprogramService().check_if_db_empty()
-
+    def _initialize_header(self):
         workout_name = ttk.Label(master=self._frame1, text=self._workouts[0].program_name(),
                                  font=self.title, padding=5)
-
         workout_name.grid(row=0, column=0, columnspan=2)
 
+    def _initialize_content(self):
+        check = WprogramService().check_if_db_empty()
         counter = 1
         for workout in self._workouts:
 
             wod = ttk.Label(master=self._frame2, text=workout.wod_name())
-
             wod.grid(row=counter, column=0)
 
             wod_button = ttk.Button(
@@ -82,8 +76,7 @@ class WorkoutView:
 
             delete_button = ttk.Button(
                 master=self._frame2,
-                text="Delete workout"
-            )
+                text="Delete workout")
 
             if check == False:
                 wod_button.grid(row=counter, column=1)
@@ -98,6 +91,7 @@ class WorkoutView:
 
             counter += 1
 
+    def _initialize_footer(self):
         new_wod_button = ttk.Button(
             master=self._frame3,
             text="New WOD",
@@ -118,3 +112,12 @@ class WorkoutView:
             command=self._delete_user_data
         )
         delete_user_data.grid(row=0, column=2)
+
+    def _initialize(self):
+        self._frame1 = ttk.Frame(master=self._root)
+        self._frame2 = ttk.Frame(master=self._root)
+        self._frame3 = ttk.Frame(master=self._root)
+
+        self._initialize_header()
+        self._initialize_content()
+        self._initialize_footer()
