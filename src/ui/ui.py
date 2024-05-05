@@ -91,7 +91,7 @@ class UI:
         self._current_view = NewWodView(
             self._root,
             self._handle_workout_view,
-            self._handle_edit_wod_view,
+            self._handle_wod_view,
         )
 
         self._current_view.pack()

@@ -1,8 +1,5 @@
 from tkinter import ttk, constants
-# import tkinter as tk
 from tkinter import font as tkfont
-# from repositories.wprogram_repository import WorkoutProgramRepository
-# from entities.workout_program import WorkoutProgram
 from services.wprogram_service import WprogramService
 from tkinter import messagebox
 from services.user_service import user_service
@@ -66,7 +63,7 @@ class WorkoutView:
         counter = 1
         for workout in self._workouts:
 
-            wod = ttk.Label(master=self._frame2, text=workout.wod_name())
+            wod = ttk.Label(master=self._frame2, text=workout.wod_name(), padding=3)
             wod.grid(row=counter, column=0)
 
             wod_button = ttk.Button(
@@ -79,8 +76,8 @@ class WorkoutView:
                 text="Delete workout")
 
             if check == False:
-                wod_button.grid(row=counter, column=1)
-                delete_button.grid(row=counter, column=2)
+                wod_button.grid(row=counter, column=1, padx=3, pady=3)
+                delete_button.grid(row=counter, column=2, padx=3, pady=3)
 
                 delete_button.config(
                     command=lambda wod_id=workout.wod_id(),
@@ -97,21 +94,21 @@ class WorkoutView:
             text="New WOD",
             command=self.handle_new_wod
         )
-        new_wod_button.grid(row=0, column=0)
+        new_wod_button.grid(row=0, column=0, padx=3, pady=3)
 
         logout = ttk.Button(
             master=self._frame3,
             text="Logout",
             command=self._handle_logout
         )
-        logout.grid(row=0, column=1)
+        logout.grid(row=0, column=1, padx=3, pady=3)
 
         delete_user_data = ttk.Button(
             master=self._frame3,
             text="Delete user data",
             command=self._delete_user_data
         )
-        delete_user_data.grid(row=0, column=2)
+        delete_user_data.grid(row=0, column=2, padx=3, pady=3)
 
     def _initialize(self):
         self._frame1 = ttk.Frame(master=self._root)
