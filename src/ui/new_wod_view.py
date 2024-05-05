@@ -1,12 +1,14 @@
 from tkinter import ttk, constants
 from repositories.wod_repository import WodRepository
 from services.wod_service import WodService
+from tkinter import messagebox
 
 
 class NewWodView:
-    def __init__(self, root, handle__workout_view):
+    def __init__(self, root, handle__workout_view, handle_edit_wod_view):
         self._root = root
         self._handle_check_workout = handle__workout_view
+        self._handle_edit_wod_view = handle_edit_wod_view
         self._frame = None
         self._frame2 = None
         self._frame3 = None
@@ -45,17 +47,19 @@ class NewWodView:
     def save(self):
         content = []
         for entry in self.entries:
-            exercise = entry[1].get()
-            sets = entry[2].get()
-            reps = entry[3].get()
-            weights = entry[4].get()
             content.append([self.wod_name_entry.get(),
-                            exercise,
-                            sets,
-                            reps,
-                            weights])
+                            entry[1].get(),
+                            entry[2].get(),
+                            entry[3].get(),
+                            entry[4].get()])
 
-        self._ws.save_new_wod(content)
+        result = self._ws.save_new_wod(content)
+        if result[0]:
+            messagebox.showinfo("Success", "Saving succeeded")
+            self._handle_edit_wod_view(result[1])
+        else:
+            messagebox.showinfo(
+                "Error", "Wod name already exists, please change the name")
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

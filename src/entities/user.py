@@ -1,6 +1,7 @@
 class User:
     """Class that describes the user
     """
+
     def __init__(self, username, password, user_id=""):
         """Class constructor which creates the user
 

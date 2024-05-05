@@ -5,6 +5,7 @@ from database_connection import get_database_connection
 class WorkoutProgramRepository:
     """Workout program repository
     """
+
     def __init__(self):
         """Class constructor
 
@@ -20,7 +21,7 @@ class WorkoutProgramRepository:
 
         Args:
             user (User)
-        
+
         Returns:
             wprogram_id (int)
         """
@@ -30,7 +31,7 @@ class WorkoutProgramRepository:
                         INNER JOIN users
                         ON  workout_program.id = users.wprogram_id
                         WHERE users.username = ?""",
-                       (user.username(),))
+                        (user.username(),))
 
         return self._c.fetchone()[0]
 
@@ -39,7 +40,7 @@ class WorkoutProgramRepository:
 
         Args:
             user (User)
-        
+
         Returns:
             wprogram_name (str)
         """
@@ -49,7 +50,7 @@ class WorkoutProgramRepository:
                         INNER JOIN users
                         ON  workout_program.id = users.wprogram_id
                         WHERE users.username = ?""",
-                       (user.username(),))
+                        (user.username(),))
 
         return self._c.fetchone()[0]
 
@@ -58,7 +59,7 @@ class WorkoutProgramRepository:
 
         Args:
             wp_id (int): workout_program id
-        
+
         Returns:
             list of WorkoutProgram-entities with attributes:
                 wprogram_id (int): workout_program.id
@@ -89,7 +90,7 @@ class WorkoutProgramRepository:
 
         Args:
             wod_name(str): wod_id_table.wod_name
-        
+
         Returns:
             wod (row object): workout_program.id, wod_name
         """

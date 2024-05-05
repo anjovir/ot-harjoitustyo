@@ -1,8 +1,8 @@
 from tkinter import ttk, constants
-#import tkinter as tk
+# import tkinter as tk
 from tkinter import font as tkfont
-#from repositories.wprogram_repository import WorkoutProgramRepository
-#from entities.workout_program import WorkoutProgram
+# from repositories.wprogram_repository import WorkoutProgramRepository
+# from entities.workout_program import WorkoutProgram
 from services.wprogram_service import WprogramService
 from tkinter import messagebox
 from services.user_service import user_service
@@ -44,18 +44,17 @@ class WorkoutView:
 
     def delete_wod(self, wod_id, wl, db, wb):
         WprogramService().delete_wod(wod_id)
-        
+
         wl.destroy()
         db.destroy()
         wb.destroy()
 
         messagebox.showinfo("Succes", "Workout deleted successfully")
-    
+
     def _delete_user_data(self):
         user_service.delete_user_data()
         messagebox.showinfo("Succes", "User data deleted successfully")
         self._handle_logout()
-
 
     def _initialize(self):
         self._frame1 = ttk.Frame(master=self._root)

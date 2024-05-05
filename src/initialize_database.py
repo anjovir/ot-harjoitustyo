@@ -1,5 +1,6 @@
 from database_connection import get_database_connection
 
+
 def drop_tables(connection):
     cursor = connection.cursor()
     cursor.execute('''
@@ -76,13 +77,14 @@ def create_tables(connection):
 
     connection.commit()
 
+
 def create_test_db(connection):
     connection = get_database_connection()
     cursor = connection.cursor()
 
     cursor.execute(
-            "INSERT INTO workout_program (wprogram_name) VALUES ('Test workout program')"
-            )
+        "INSERT INTO workout_program (wprogram_name) VALUES ('Test workout program')"
+    )
 
     cursor.execute("""INSERT INTO wod_id_table (wprogram_id, wod_name)
                    VALUES (1, 'Test wod')""")
@@ -95,11 +97,13 @@ def create_test_db(connection):
 
     connection.commit()
 
+
 def initialize_database():
     connection = get_database_connection()
 
     drop_tables(connection)
     create_tables(connection)
+
 
 def initialize_test_database():
     connection = get_database_connection()

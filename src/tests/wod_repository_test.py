@@ -23,11 +23,11 @@ class TestWodRepository(unittest.TestCase):
 
         answer = self._c.fetchall()[0]
         self.assertEqual(answer[2], self._exercise)
-    
+
     def test_return_last_exercise_id(self):
         answer = self._wr.return_last_exercise_id()
 
         self.assertEqual(answer[0], self._exercise_id)
-    
+
     def test_edit_wod(self):
         pass

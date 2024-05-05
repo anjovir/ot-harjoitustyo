@@ -13,7 +13,8 @@ class WprogramService:
         self._wpr = WorkoutProgramRepository()
         self._user = user_service.get_current_user()
         self._wp_id = self._wpr.find_wprogram_id_by_user(self._user)
-        self._wp = WorkoutProgram(self._wp_id, self._wpr.find_wprogram_name_by_user(self._user))
+        self._wp = WorkoutProgram(
+            self._wp_id, self._wpr.find_wprogram_name_by_user(self._user))
 
     def initialize_wp_view(self):
         """Initializes workout program view

@@ -87,5 +87,4 @@ class UserService:
         self._user_repository.delete_user_data(self._user)
 
 
-
 user_service = UserService()

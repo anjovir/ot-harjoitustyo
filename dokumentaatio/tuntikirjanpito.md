@@ -41,8 +41,9 @@
 |29.4|1|Viikko 6, lisätty käyttöohje ja päivitetty arkkitehtuuria|
 |2.5|1|Viikko 7, korjattu wodin tallennusprosessia|
 |4.5|1|Viikko 7, korjattu lopullisesti wodin tallennusprosessi|
+|5.5|1|Viikko 7, muokattu uuden wodin luomiseen liittyvä toiminnallisuus|
 
 
 
-|Summa|48||
+|Summa|49||
 

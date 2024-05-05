@@ -5,6 +5,7 @@ from database_connection import get_database_connection
 class WodRepository:
     """Workout of the day repository
     """
+
     def __init__(self):
         """Class constructor, connection to db
         """
@@ -45,33 +46,51 @@ class WodRepository:
                     row[1], row[2])
                 for row in rows]
 
-    def write(self, wod_name, wprogram_id, exercise, sets, reps, weights):
+    def find_the_wod_by_name(self, wprogram_id, wod_name):
+        cursor = self._connection.cursor()
+
+        cursor.execute("""SELECT * FROM wod_id_table
+                       WHERE wprogram_id = ? AND wod_name = ?""",
+                       (wprogram_id, wod_name))
+        rows = cursor.fetchall()
+        return rows
+
+    def is_the_wod_name_taken(self, wod_name, wprogram_id):
+        wod_id = self.find_the_wod_by_name(wprogram_id, wod_name)
+        if not wod_id:
+            return False
+        return True
+
+    def write(self, entries, wprogram_id):
         """Writes a workout of the day to the db
 
         Args:
-            wod_name (str)
-            wprogram_id (int)
-            exercise (str)
-            sets (str)
-            reps (str)
-            weights (str)
-        
+            entries (list): contains exercise entries
         """
 
         cursor = self._connection.cursor()
+
+        wod_name = entries[0][0]
+
+        if self.is_the_wod_name_taken(wod_name, wprogram_id):
+            return [False, 0]
+
         cursor.execute("""
                 INSERT INTO wod_id_table (wprogram_id, wod_name)
                 VALUES (?, ?)""",
-                           (wprogram_id, wod_name))
+                       (wprogram_id, wod_name))
 
         wod_id = cursor.lastrowid
 
-        cursor.execute("""
-            INSERT INTO wod_exercises (wod_id,exercise, sets, reps, weights)
-            VALUES (?, ?, ?, ?, ?)""",
-                       (wod_id, exercise, sets, reps, weights))
+        for entry in entries:
+            cursor.execute("""
+                INSERT INTO wod_exercises (wod_id,exercise, sets, reps, weights)
+                VALUES (?, ?, ?, ?, ?)""",
+                           (wod_id, entry[1], entry[2], entry[3], entry[4]))
 
         self._connection.commit()
+
+        return [True, wod_id]
 
     def return_last_exercise_id(self):
         """Returns the last id from wod_exercises table
@@ -89,7 +108,7 @@ class WodRepository:
 
         Args:
             wod_id(int)
-        
+
         Returns:
             id (int): id from the added row in wod_exercises
         """
@@ -110,7 +129,6 @@ class WodRepository:
              sets,
              reps,
              weights):
-
         """Updates the db when editing an existing wod.
             First update wod_id_table
             then wod_exercises table
@@ -129,10 +147,9 @@ class WodRepository:
 
         cursor.execute("""SELECT wod_id FROM wod_exercises
                        WHERE id = ?""", (row_id,))
-        
+
         w_id = cursor.fetchone()
-        
-        
+
         if not w_id or (isinstance(w_id[0], int) and w_id[0] != wod_id):
             row_id = self.add_new_row_when_updating(wod_id)
 
@@ -152,7 +169,7 @@ class WodRepository:
                        weights = ?
                        WHERE id = ?
                     """,
-                    (exercise, sets, reps, weights, row_id))
+                       (exercise, sets, reps, weights, row_id))
 
         self._connection.commit()
 

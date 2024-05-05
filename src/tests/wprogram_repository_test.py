@@ -3,14 +3,15 @@ from repositories.wprogram_repository import WorkoutProgramRepository
 from initialize_database import initialize_test_database
 from services.user_service import user_service
 
+
 class TestWorkoutProgramRepository(unittest.TestCase):
     def setUp(self):
         initialize_test_database()
         self._wpr = WorkoutProgramRepository()
-        
+
         user_service.login("Pekka", "pekka1")
         self._username = user_service.get_current_user()
-        
+
         cursor = self._wpr._connection.cursor()
 
         cursor.execute("SELECT id FROM workout_program")
@@ -23,7 +24,7 @@ class TestWorkoutProgramRepository(unittest.TestCase):
         self._weights = 70
         cursor = self._wpr._connection.cursor()
         self._exercise_id = 1
-    
+
     def test_find_all_distinct_wods_by_wp_id(self):
         answer = self._wpr.find_all_distinct_wods_by_wp_id(self._wprogram_id)
         self.assertEqual(answer[0].id(), 1)
@@ -31,4 +32,3 @@ class TestWorkoutProgramRepository(unittest.TestCase):
     def test_find_wprogram_id_by_user(self):
         answer = self._wpr.find_wprogram_id_by_user(self._username)
         self.assertEqual(answer, 1)
-

@@ -5,7 +5,7 @@ from entities.user import User
 class TestUser(unittest.TestCase):
 
     def setUp(self):
-        self._user = User("testihenkilö", "testisalasana",1)
+        self._user = User("testihenkilö", "testisalasana", 1)
 
     def test_constructor_works(self):
         user = User("testihenkilö", "testisalasana")

@@ -7,6 +7,7 @@ from services.user_service import user_service
 class WodService:
     """Workout of the day service layer
     """
+
     def __init__(self):
         """Constructor
         """
@@ -37,13 +38,7 @@ class WodService:
             entries (list): contains wod attributes
         """
 
-        for entry in entries:
-            self._wr.write(entry[0],
-                           self._wprogram_id,
-                           entry[1],
-                           entry[2],
-                           entry[3],
-                           entry[4])
+        return self._wr.write(entries, self._wprogram_id)
 
     def update_wod(self, entries):
         """Updates an existing workout of the day
@@ -54,16 +49,15 @@ class WodService:
         row_ids = []
         for entry in entries:
             row_ids.append(self._wr.edit(entry[0],
-                          entry[1],
-                          entry[2],
-                          self._wprogram_id,
-                          entry[3],
-                          entry[4],
-                          entry[5],
-                          entry[6]))
-        
+                                         entry[1],
+                                         entry[2],
+                                         self._wprogram_id,
+                                         entry[3],
+                                         entry[4],
+                                         entry[5],
+                                         entry[6]))
+
         return row_ids
-        
 
     def return_last_id(self, wod_id):
         """Return wod_exercises new id when adding new row in the ui

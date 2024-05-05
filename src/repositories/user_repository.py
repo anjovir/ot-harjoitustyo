@@ -17,6 +17,7 @@ def get_user_by_row(row):
 
 class UserRepository:
     """Class for the user repository"""
+
     def __init__(self):
         """Class constructor
 
@@ -97,7 +98,8 @@ class UserRepository:
         cursor.execute("SELECT wprogram_id FROM users WHERE id=?", (user_id, ))
         wprogram_id = cursor.fetchone()[0]
 
-        cursor.execute("DELETE FROM workout_program WHERE id=?", (wprogram_id, ))
+        cursor.execute("DELETE FROM workout_program WHERE id=?",
+                       (wprogram_id, ))
 
         self._connection.commit()
 
