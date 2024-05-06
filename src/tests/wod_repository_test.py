@@ -15,10 +15,10 @@ class TestWodRepository(unittest.TestCase):
         self._weights = 70
         self._c = self._wr._connection.cursor()
         self._exercise_id = 1
+        self._entry = ["Testitreeni", "Testipenkki", "3", "10", "70"]
 
     def test_write_method(self):
-        self._wr.write(self._wod_name, self._wprogram_id,
-                       self._exercise, self._sets, self._reps, self._weights)
+        self._wr.write([self._entry], self._wprogram_id)
         self._c.execute("SELECT * FROM wod_exercises")
 
         answer = self._c.fetchall()[0]
