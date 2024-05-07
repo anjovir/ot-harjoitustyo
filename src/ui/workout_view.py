@@ -63,7 +63,8 @@ class WorkoutView:
         counter = 1
         for workout in self._workouts:
 
-            wod = ttk.Label(master=self._frame2, text=workout.wod_name(), padding=3)
+            wod = ttk.Label(master=self._frame2,
+                            text=workout.wod_name(), padding=3)
             wod.grid(row=counter, column=0)
 
             wod_button = ttk.Button(

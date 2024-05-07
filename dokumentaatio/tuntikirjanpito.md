@@ -42,6 +42,8 @@
 |2.5|1|Viikko 7, korjattu wodin tallennusprosessia|
 |4.5|1|Viikko 7, korjattu lopullisesti wodin tallennusprosessi|
 |5.5|3|Viikko 7, muokattu uuden wodin luomiseen liittyvä toiminnallisuus, refaktoroitu wod ja wprogram näkymiä|
+|6.5|0,5|Viikko 7, refaktorointia, wod_repository-testin korjaaminen|
+|7.5|1|Viikko 7, refaktorointia|
 
 
 

@@ -39,9 +39,9 @@ class NewWodView:
             entry = ttk.Entry(self._frame2)
             self.default_grid2(entry, row=current_row, column=i)
             entries.append(entry)
-        
+
         self.entries.append(
-            entries)        
+            entries)
 
     def save(self):
         content = []
@@ -59,32 +59,34 @@ class NewWodView:
         else:
             messagebox.showinfo(
                 "Error", "Wod name already exists, please change the name")
-    
-    def default_grid(self,widget, row, column, padx=3, pady=3):
+
+    def default_grid(self, widget, row, column, padx=3, pady=3):
         widget.grid(row=row, column=column, padx=padx, pady=pady)
-    
-    def default_grid2(self,widget, row, column, padx=2, pady=2, sticky="w"):
-        widget.grid(row=row, column=column, padx=padx, pady=pady, sticky=sticky)
-    
+
+    def default_grid2(self, widget, row, column, padx=2, pady=2, sticky="w"):
+        widget.grid(row=row, column=column, padx=padx,
+                    pady=pady, sticky=sticky)
+
     def _initialize_header(self):
-        wod_name = ttk.Label(master=self._frame1, text="Workout name", padding=3)
+        wod_name = ttk.Label(master=self._frame1,
+                             text="Workout name", padding=3)
         self.wod_name_entry = ttk.Entry(master=self._frame1)
 
-        self.default_grid(wod_name,0,0)
-        self.default_grid(self.wod_name_entry,0,1)
+        self.default_grid(wod_name, 0, 0)
+        self.default_grid(self.wod_name_entry, 0, 1)
 
     def _initialize_main_content(self):
         exercise_name_label = ttk.Label(master=self._frame2, text="Exercise")
-        exercise_name_entry = ttk.Entry(master=self._frame2) 
-        
-        self.default_grid2(exercise_name_label,row=0, column=0)
+        exercise_name_entry = ttk.Entry(master=self._frame2)
+
+        self.default_grid2(exercise_name_label, row=0, column=0)
         self.default_grid2(exercise_name_entry, row=1, column=0)
 
         sets_label = ttk.Label(master=self._frame2, text="Number of sets")
         sets_entry = ttk.Entry(master=self._frame2)
 
-        self.default_grid2(sets_label,row=0, column=1)
-        self.default_grid2(sets_entry,row=1, column=1)
+        self.default_grid2(sets_label, row=0, column=1)
+        self.default_grid2(sets_entry, row=1, column=1)
 
         reps_label = ttk.Label(master=self._frame2, text="Number of reps")
         reps_entry = ttk.Entry(master=self._frame2)
@@ -123,10 +125,9 @@ class NewWodView:
             command=self.save
         )
 
-        add_new_row_button.grid(row=0, column=0)
-
-        save_button.grid(row=0, column=1)
-        workout_program_button.grid(row=0, column=2)
+        add_new_row_button.grid(row=0, column=0, padx=3, pady=3)
+        save_button.grid(row=0, column=1, padx=3, pady=3)
+        workout_program_button.grid(row=0, column=2, padx=3, pady=3)
 
     def _initialize(self):
         self._frame1 = ttk.Frame(master=self._root)

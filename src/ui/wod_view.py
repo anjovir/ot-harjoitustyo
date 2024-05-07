@@ -32,7 +32,11 @@ class WodView:
         self._frame1.destroy()
         self._frame2.destroy()
         self._frame3.destroy()
-    
+
+    def _default_grid(self, widget, row, column, padx=2, pady=2, sticky="w"):
+        widget.grid(row=row, column=column, padx=padx,
+                    pady=pady, sticky=sticky)
+
     def _initialize_header(self):
         wod_name = ttk.Label(master=self._frame1,
                              text=f"{self._wod[0][0]}",
@@ -40,30 +44,31 @@ class WodView:
         wod_name.grid(row=0, column=0)
 
     def _initialize_main_content(self):
-        exercise_name_label = ttk.Label(master=self._frame2, text="Exercise", font=self._font2, padding=3)
-        sets_label = ttk.Label(master=self._frame2, text="Number of sets", font=self._font2, padding=3)
-        reps_label = ttk.Label(master=self._frame2, text="Number of reps", font=self._font2, padding=3)
-        weights_label = ttk.Label(master=self._frame2, text="Weights", font=self._font2, padding=3)
+        exercise_name_label = ttk.Label(
+            master=self._frame2, text="Exercise", font=self._font2, padding=3)
+        sets_label = ttk.Label(
+            master=self._frame2, text="Number of sets", font=self._font2, padding=3)
+        reps_label = ttk.Label(
+            master=self._frame2, text="Number of reps", font=self._font2, padding=3)
+        weights_label = ttk.Label(
+            master=self._frame2, text="Weights", font=self._font2, padding=3)
 
-        
-        exercise_name_label.grid(row=0, column=0)
-        sets_label.grid(row=0, column=1)
-        reps_label.grid(row=0, column=2)
-        weights_label.grid(row=0, column=3)
+        self._default_grid(exercise_name_label, row=0, column=0)
+        self._default_grid(sets_label, row=0, column=1)
+        self._default_grid(reps_label, row=0, column=2)
+        self._default_grid(weights_label, row=0, column=3)
 
         i = 1
         for ex in self._wod:
             exercise = ttk.Label(master=self._frame2, text=ex[1], padding=2)
-            exercise.grid(row=i, column=0)
+            self._default_grid(exercise, row=i, column=0)
             sets = ttk.Label(master=self._frame2, text=ex[2], padding=2)
-            sets.grid(row=i, column=1)
+            self._default_grid(sets, row=i, column=1)
             reps = ttk.Label(master=self._frame2, text=ex[3], padding=2)
-            reps.grid(row=i, column=2)
+            self._default_grid(reps, row=i, column=2)
             weights = ttk.Label(master=self._frame2, text=ex[4], padding=2)
-            weights.grid(row=i, column=3)
+            self._default_grid(weights, row=i, column=3)
             i += 1
-        
-        
 
     def _initialize_footer(self):
         workout_program_button = ttk.Button(
