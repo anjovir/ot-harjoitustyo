@@ -20,6 +20,7 @@ Aluksi sovellukseen toteutetaan vain peruskäyttäjän rooli. Myöhemmin voidaan
 - Käyttäjä voi muokata treeniohjelmaa [tehty, viikko 3]
 - Käyttäjä voi poistaa päiväkohtaisen treeniohjelman [tehty, viikko5]
 - Käyttäjä voi kirjautua ulos järjestelmästä [tehty, viikko 4]
+- Käyttäjätietojen ja siihen liittyvän datan poistaminen [tehty, viikko6]
 
 ## Jatkokehitysideoita
 - Käyttäjä voi merkitä tehdyt ohjelmat kalenteriin
@@ -27,4 +28,3 @@ Aluksi sovellukseen toteutetaan vain peruskäyttäjän rooli. Myöhemmin voidaan
 - Käyttäjä voi tehdä tilastoja kehityksestä
 - Käyttäjä voi jakaa treeniohjelman muille käyttäjille
 - Käyttäjä voi tehdä useamman kuntosaliohjelman
-- Käyttäjätietojen ja siihen liittyvän datan poistaminen [tehty, viikko6]
