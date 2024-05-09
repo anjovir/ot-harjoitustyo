@@ -4,8 +4,9 @@ Sovelluksessa voi luoda ja suunnitella kuntosaliohjelman kuntosalitreenaamisen t
 - linkki käyttöohjeeseen: [user manual](https://github.com/anjovir/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
 - linkki vaatimusmäärittelyyn: [vaatimusmäärittely](https://github.com/anjovir/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 - linkki arkkitehtuurikuvauksiin: [architecture](dokumentaatio/arkkitehtuuri.md)
-- linkki changelog-tiedostoon: [changelog](dokumentaatio/changelog.md)
+- linkki testidokumenttiin: [testau](dokumentaatio/testaus.md)
 - linkki työaikakirjanpitoon: [työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
+- linkki changelog-tiedostoon: [changelog](dokumentaatio/changelog.md)
 
 
 ## Sovelluksen käynnistäminen:
