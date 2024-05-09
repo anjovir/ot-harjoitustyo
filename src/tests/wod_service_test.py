@@ -4,6 +4,7 @@ from repositories.user_repository import UserRepository
 from entities.user import User
 from services.user_service import user_service
 
+
 class TestWodService(unittest.TestCase):
     def setUp(self):
         self._ur = UserRepository()
@@ -16,4 +17,3 @@ class TestWodService(unittest.TestCase):
         answer = self._ws.save_new_wod(self._content)
 
         self.assertEqual(answer[0], True)
-

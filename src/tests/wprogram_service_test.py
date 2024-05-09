@@ -4,6 +4,7 @@ from repositories.user_repository import UserRepository
 from entities.user import User
 from services.user_service import user_service
 
+
 class TestWodService(unittest.TestCase):
     def setUp(self):
         self._ur = UserRepository()

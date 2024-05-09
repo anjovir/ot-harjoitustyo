@@ -4,6 +4,7 @@ from database_connection import connection
 from repositories.user_repository import UserRepository
 from entities.user import User
 
+
 class TestWodRepository(unittest.TestCase):
     def setUp(self):
         self._ur = UserRepository()

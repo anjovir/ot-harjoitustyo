@@ -1,6 +1,7 @@
 import unittest
 from entities.wod import Wod
 
+
 class TestWod(unittest.TestCase):
     def setUp(self):
         self._wod = Wod()
