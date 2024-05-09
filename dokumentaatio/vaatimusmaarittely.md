@@ -8,19 +8,19 @@ Aluksi sovellukseen toteutetaan vain peruskäyttäjän rooli. Myöhemmin voidaan
 
 ## Perusversion tarjoamat toiminnallisuudet
 ### Ennen kirjautumista
-- Käyttäjä voi luoda käyttäjätunnuksen järjestelmään [tehty, viikko 4]
-- Käyttäjä voi kirjautua ohjelmaan [tehty, viikko 4]
-  - Kirjautuminen tapahtuu rekisteröitymisen jälkeen syötettäessä tiedot kirjautumislomakkeelle [tehty, viikko 4]
-  - Mikäli salasana tai käyttäjätunnus ei täsmää, tai näitä ei ole olemassa, tästä tulee ilmoitus [tehty, viikko 4]
+- Käyttäjä voi luoda käyttäjätunnuksen järjestelmään
+- Käyttäjä voi kirjautua ohjelmaan
+  - Kirjautuminen tapahtuu rekisteröitymisen jälkeen syötettäessä tiedot kirjautumislomakkeelle
+  - Mikäli salasana tai käyttäjätunnus ei täsmää, tai näitä ei ole olemassa, tästä tulee ilmoitus
 
 ### Kirjautumisen jälkeen
-- Käyttäjä näkee oman kuntosaliohjelmansa ja näiden päiväkohtaiset treeniohjelmansa [tehty, viikko 3]
-  - Näkyvyys ainoastaan kirjautuneelle käyttäjälle [tehty, viikko 4]
-- Käyttäjä voi lisätä treeniohjelmaan treeniliikkeen, sarjojen ja toistojen määrän sekä käytettävät painot [tehty, viikko 3]
-- Käyttäjä voi muokata treeniohjelmaa [tehty, viikko 3]
-- Käyttäjä voi poistaa päiväkohtaisen treeniohjelman [tehty, viikko5]
-- Käyttäjä voi kirjautua ulos järjestelmästä [tehty, viikko 4]
-- Käyttäjätietojen ja siihen liittyvän datan poistaminen [tehty, viikko6]
+- Käyttäjä näkee oman kuntosaliohjelmansa ja näiden päiväkohtaiset treeniohjelmansa
+  - Näkyvyys on ainoastaan kirjautuneelle käyttäjälle
+- Käyttäjä voi lisätä treeniohjelmaan treeniliikkeen, sarjojen ja toistojen määrän sekä käytettävät painot
+- Käyttäjä voi muokata treeniohjelmaa
+- Käyttäjä voi poistaa päiväkohtaisen treeniohjelman
+- Käyttäjä voi kirjautua ulos järjestelmästä
+- Käyttäjä voi poistaa omat käyttäjätietonsa ja kaiken treeneihin liittyvän datan 
 
 ## Jatkokehitysideoita
 - Käyttäjä voi merkitä tehdyt ohjelmat kalenteriin
