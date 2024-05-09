@@ -44,10 +44,11 @@
 |5.5|3|Viikko 7, muokattu uuden wodin luomiseen liittyvä toiminnallisuus, refaktoroitu wod ja wprogram näkymiä|
 |6.5|0,5|Viikko 7, refaktorointia, wod_repository-testin korjaaminen|
 |7.5|1|Viikko 7, refaktorointia|
-|8.5|0,5|Viikko 7, lisätty testejä|
+|8.5|1|Viikko 7, lisätty testejä, päivitetty dokumentaatiota|
+|9.5|2|Viikko 7, testejä muuteltu, päivitetty testidokumentaatio|
 
 
 
 
-|Summa|52||
+|Summa|53||
 

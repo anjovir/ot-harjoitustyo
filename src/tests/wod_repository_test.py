@@ -1,11 +1,14 @@
 import unittest
 from repositories.wod_repository import WodRepository
-from initialize_database import initialize_test_database
-
+from database_connection import connection
+from repositories.user_repository import UserRepository
+from entities.user import User
 
 class TestWodRepository(unittest.TestCase):
     def setUp(self):
-        initialize_test_database()
+        self._ur = UserRepository()
+        self._user = User("Simo", "simo1", 1)
+
         self._wr = WodRepository()
         self._wod_name = "Testitreeni"
         self._wprogram_id = 1
@@ -25,9 +28,6 @@ class TestWodRepository(unittest.TestCase):
         self.assertEqual(answer[2], self._exercise)
 
     def test_return_last_exercise_id(self):
+        self._wr.write([self._entry], self._wprogram_id)
         answer = self._wr.return_last_exercise_id()
-
         self.assertEqual(answer[0], self._exercise_id)
-
-    def test_edit_wod(self):
-        pass

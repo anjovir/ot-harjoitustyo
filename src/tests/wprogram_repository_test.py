@@ -1,15 +1,17 @@
 import unittest
 from repositories.wprogram_repository import WorkoutProgramRepository
-from initialize_database import initialize_test_database
+from repositories.user_repository import UserRepository
+from entities.user import User
 from services.user_service import user_service
 
 
 class TestWorkoutProgramRepository(unittest.TestCase):
     def setUp(self):
-        initialize_test_database()
         self._wpr = WorkoutProgramRepository()
+        self._ur = UserRepository()
+        self._user = User("Simo", "simo1", 1)
 
-        user_service.login("Pekka", "pekka1")
+        user_service.login("Simo", "simo1")
         self._username = user_service.get_current_user()
 
         cursor = self._wpr._connection.cursor()

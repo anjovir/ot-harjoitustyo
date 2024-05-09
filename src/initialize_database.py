@@ -77,43 +77,11 @@ def create_tables(connection):
 
     connection.commit()
 
-
-def create_test_db(connection):
-    connection = get_database_connection()
-    cursor = connection.cursor()
-
-    cursor.execute(
-        "INSERT INTO workout_program (wprogram_name) VALUES ('Test workout program')"
-    )
-
-    cursor.execute("""INSERT INTO wod_id_table (wprogram_id, wod_name)
-                   VALUES (1, 'Test wod')""")
-
-    cursor.execute("""INSERT INTO wod_exercises (wod_id,exercise, sets, reps, weights)
-                VALUES (1, 'Testipenkki', 3, 10, 70)""")
-
-    cursor.execute("""INSERT INTO users (username, password, wprogram_id)
-                   VALUES ('Pekka', 'pekka1', 1)""")
-
-    connection.commit()
-
-
 def initialize_database():
     connection = get_database_connection()
 
     drop_tables(connection)
     create_tables(connection)
-
-
-def initialize_test_database():
-    connection = get_database_connection()
-
-    drop_tables(connection)
-    create_tables(connection)
-    create_test_db(connection)
-
-    connection.commit()
-
 
 if __name__ == "__main__":
     initialize_database()
